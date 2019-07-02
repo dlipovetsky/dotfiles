@@ -1,0 +1,108 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "ctrl+shift+f",
+        "command": "filesExplorer.findInFolder",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "ctrl+alt+q",
+        "command": "workbench.action.quit"
+    },
+    {
+        "key": "cmd+q",
+        "command": "-workbench.action.quit"
+    },
+    {
+        "key": "cmd+h",
+        "command": "editor.action.startFindReplaceAction"
+    },
+    {
+        "key": "ctrl+shift+alt+f",
+        "command": "-editor.action.startFindReplaceAction"
+    },
+    {
+        "key": "alt+pageup",
+        "command": "cursorHome",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "alt+pagedown",
+        "command": "cursorEnd",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-extension.simpleVim.scrollDownPage",
+        "when": "editorTextFocus && !extension.simpleVim.insertMode"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-extension.simpleVim.scrollDownPage",
+        "when": "editorTextFocus && !extension.simpleVim.insertMode"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-extension.simpleVim.scrollDownHalfPage",
+        "when": "editorTextFocus && !extension.simpleVim.insertMode"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "-extension.simpleVim.scrollUpHalfPage",
+        "when": "editorTextFocus && !extension.simpleVim.insertMode"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-extension.simpleVim.scrollUpPage",
+        "when": "editorTextFocus && !extension.simpleVim.insertMode"
+    },
+    {
+        "key": "alt+pagedown",
+        "command": "-scrollPageDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "alt+pageup",
+        "command": "-scrollPageUp",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "shift+alt+pageup",
+        "command": "cursorHomeSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "shift+home",
+        "command": "-cursorHomeSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "shift+alt+pagedown",
+        "command": "cursorEndSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "shift+end",
+        "command": "-cursorEndSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "-workbench.action.terminal.openNativeConsole",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+k ctrl+shift+r",
+        "command": "workbench.action.terminal.runActiveFile"
+    },
+    {
+        "key": "ctrl+k ctrl+space",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "f12",
+        "command": "-editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    }
+]
