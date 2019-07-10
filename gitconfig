@@ -1,0 +1,7 @@
+[include]
+	path = "~/.gitconfig.private"
+	path = "~/.gitconfig.platform9"
+[url "ssh://git@bitbucket.org/"]
+	insteadOf = https://bitbucket.org/
+[init]
+	templatedir = ~/.git-templates
