@@ -79,6 +79,7 @@ alias gps="git push"
 alias gad="git add"
 alias grm="git rm"
 alias gcp="git cherry-pick"
+alias grs="git reset"
 
 # Command completion for git aliases
 if type -t "__git_complete" &>/dev/null; then
