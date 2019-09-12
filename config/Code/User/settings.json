@@ -47,6 +47,7 @@
     "gitlens.codeLens.recentChange.enabled": false,
 
     "go.useLanguageServer": true,
+    "go.toolsEnvVars": { "GO111MODULE": "on" },
     "go.autocompleteUnimportedPackages": true,
     // "go.lintTool": "revive",
     // "go.lintFlags": [ "-exclude=vendor/..." ],
