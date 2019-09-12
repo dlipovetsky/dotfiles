@@ -57,4 +57,7 @@
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.iconTheme": "simple-icons",
+    "plantuml.render": "PlantUMLServer",
+    "plantuml.server": "http://localhost:8080",
+    "markdown.extension.toc.levels": "2..6",
 }
