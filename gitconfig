@@ -1,6 +1,6 @@
 [include]
 	path = "~/.gitconfig.private"
-	path = "~/.gitconfig.platform9"
+	path = "~/.gitconfig.d2iq"
 [url "ssh://git@bitbucket.org/"]
 	insteadOf = https://bitbucket.org/
 [init]
