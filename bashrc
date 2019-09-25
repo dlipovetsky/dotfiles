@@ -21,7 +21,7 @@ function prependpath() {
 # Go
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
-export GOROOT="$GOPATH/1.12.6"
+export GOROOT="$GOPATH/1.12.9"
 
 prependpath "$GOBIN"
 prependpath "$GOROOT/bin"
