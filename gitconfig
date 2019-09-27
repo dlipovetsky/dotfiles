@@ -3,5 +3,7 @@
 	path = "~/.gitconfig.d2iq"
 [url "ssh://git@bitbucket.org/"]
 	insteadOf = https://bitbucket.org/
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
 [init]
 	templatedir = ~/.git-templates
