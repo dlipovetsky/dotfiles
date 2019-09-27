@@ -117,3 +117,4 @@ FZF_ALT_C_COMMAND="fd --type directory --color=always --exclude .git"
 FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 FZF_DEFAULT_OPTS="--ansi"
 
+source ~/.d2iqrc
