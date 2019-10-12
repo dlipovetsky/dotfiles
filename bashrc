@@ -105,17 +105,17 @@ export KUBE_EDITOR=vim
 export N_PREFIX=$HOME/.local
 
 # fd
-[ -f ~/.fd.bash ] && source ~/.fd.bash
+[ -f $HOME/.fd.bash ] && source $HOME/.fd.bash
 
 # fzf
 # keybindings when installed from dnf
 [ -f /usr/share/fzf/shell/key-bindings.bash ] && source /usr/share/fzf/shell/key-bindings.bash
 # keybindings when installed from source
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
 [ -n "$TMUX_PANE" ] && FZF_TMUX=1
 FZF_DEFAULT_COMMAND="fd --type file --color=always --hidden --follow --exclude .git"
 FZF_ALT_C_COMMAND="fd --type directory --color=always --exclude .git"
 FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 FZF_DEFAULT_OPTS="--ansi"
 
-source ~/.d2iqrc
+source $HOME/.d2iqrc
