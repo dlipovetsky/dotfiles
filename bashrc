@@ -99,6 +99,7 @@ fi
 # Kubernetes 
 alias kc=kubectl
 export KUBE_EDITOR=vim
+[ -f $HOME/.kube/completion.bash.inc ] && source $HOME/.kube/completion.bash.inc
 
 # n (npm version manager)
 export N_PREFIX=$HOME/.local
