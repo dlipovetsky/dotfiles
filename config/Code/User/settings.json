@@ -56,5 +56,14 @@
     "plantuml.server": "http://localhost:8080",
     "markdown.extension.toc.levels": "2..6",
 
-    "vim.useCtrlKeys": false,
+    "vim.useCtrlKeys": true,
+    "vim.handleKeys": {
+        "<C-f>": false,
+        "<C-w>": false,
+        "<C-s>": false,
+        "<C-t>": false,
+        "<C-n>": false,
+        "<C-pageup>": false,
+        "<C-pagedown>": false,
+    },
 }
