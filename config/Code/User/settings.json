@@ -47,6 +47,9 @@
     "gitlens.codeLens.recentChange.enabled": false,
 
     "go.useLanguageServer": true,
+    "go.languageServerExperimentalFeatures": {
+        "documentLink": false
+    },
     "go.toolsEnvVars": { "GO111MODULE": "on" },
     "go.autocompleteUnimportedPackages": true,
 
