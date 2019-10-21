@@ -5,6 +5,9 @@ elif [ -f "/etc/bashrc" ]; then
 	source /etc/bashrc
 fi
 
+# Locale
+LC_TIME="en_GB.UTF-8"
+
 # Prompt
 function parse_git_branch()
 {
