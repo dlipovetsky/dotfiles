@@ -20,14 +20,10 @@
     "telemetry.enableCrashReporter": false,
     "terminal.integrated.shell.osx": "/usr/local/bin/bash",
     "telemetry.enableTelemetry": false,
-    "window.zoomLevel": 2,
     "workbench.editor.enablePreview": true,
     "workbench.colorTheme": "Visual Studio Light",
-
     // extension settings
-
     "amVim.bindCtrlCommands": false,
-
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -45,20 +41,45 @@
     "gitlens.views.fileHistory.enabled": true,
     "gitlens.views.lineHistory.enabled": true,
     "gitlens.codeLens.recentChange.enabled": false,
-
+    // go settings
+    "go.buildOnSave": "off",
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": [
+        "--fast"
+    ],
+    "go.autocompleteUnimportedPackages": true,
+    "go.installDependenciesWhenBuilding": false,
     "go.useLanguageServer": true,
     "go.languageServerExperimentalFeatures": {
-        "documentLink": false
+        "format": true,
+        "autoComplete": true,
+        "rename": true,
+        "goToDefinition": true,
+        "hover": true,
+        "signatureHelp": true,
+        "goToTypeDefinition": true,
+        "goToImplementation": true,
+        "documentSymbols": true,
+        "workspaceSymbols": true,
+        "findReferences": true,
+        "diagnostics": true,
+        "documentLink": false,
     },
-    "go.toolsEnvVars": { "GO111MODULE": "on" },
-    "go.autocompleteUnimportedPackages": true,
-
+    "[go]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "gopls": {
+        "usePlaceholders": true,
+        "completeUnimported": true,
+    },
     "rewrap.wrappingColumn": 80,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "plantuml.render": "PlantUMLServer",
-    "plantuml.server": "http://localhost:8080",
+    "plantuml.server": "http://localhost:9080",
     "markdown.extension.toc.levels": "2..6",
-
     "vim.useCtrlKeys": true,
     "vim.handleKeys": {
         "<C-f>": false,
@@ -78,5 +99,19 @@
             ".terraform/**/*",
             "**/.terraform/**/*"
         ]
-    }
+    },
+    "go.formatTool": "goimports",
+    "files.exclude": {
+        "**/.history": true
+    },
+    "markdown.extension.showExplorer": true,
+    "explorer.autoReveal": false,
+    "window.zoomLevel": 2,
+    "editor.fontSize": 12,
+    "debug.console.fontSize": 12,
+    "markdown.preview.fontSize": 12,
+    "terminal.integrated.fontSize": 12,
+    "vim.easymotion": true,
+    "vim.easymotionMarkerFontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "vim.easymotionMarkerFontWeight": "bold"
 }
