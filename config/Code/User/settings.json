@@ -49,7 +49,26 @@
     ],
     "go.autocompleteUnimportedPackages": true,
     "go.installDependenciesWhenBuilding": false,
+
+    // the below follows https://github.com/golang/tools/blob/master/gopls/doc/vscode.md
     "go.useLanguageServer": true,
+    "[go]": {
+        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        },
+        "editor.codeActionsOnSaveTimeout": 3000, // allow more time for import organization
+    },
+    "gopls": {
+        "usePlaceholders": true, // add parameter placeholders when completing a function
+
+        // Experimental settings
+        "completeUnimported": true, // autocomplete unimported packages
+        "watchFileChanges": true,  // watch file changes outside of the editor
+        "deepCompletion": true,     // enable deep completion
+    },
+    "files.eol": "\n", // formatting only supports LF line endings
     "go.languageServerExperimentalFeatures": {
         "format": true,
         "autoComplete": true,
@@ -65,16 +84,8 @@
         "diagnostics": true,
         "documentLink": false,
     },
-    "[go]": {
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        }
-    },
-    "gopls": {
-        "usePlaceholders": true,
-        "completeUnimported": true,
-    },
+    // end go settings
+
     "rewrap.wrappingColumn": 80,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "plantuml.render": "PlantUMLServer",
