@@ -9,6 +9,7 @@
     "files.autoSave": "off",
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
+
     "git.confirmSync": false,
     "git.autofetch": true,
     "python.pythonPath": "python2",
@@ -22,8 +23,14 @@
     "telemetry.enableTelemetry": false,
     "workbench.editor.enablePreview": true,
     "workbench.colorTheme": "Visual Studio Light",
+
+    // ansible extension
+    "files.associations": {
+        "**/*.yml": "ansible"
+    },
+    // end ansible extension
+
     // extension settings
-    "amVim.bindCtrlCommands": false,
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -124,5 +131,10 @@
     "terminal.integrated.fontSize": 12,
     "vim.easymotion": true,
     "vim.easymotionMarkerFontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "vim.easymotionMarkerFontWeight": "bold"
+    "vim.easymotionMarkerFontWeight": "bold",
+    "files.watcherExclude": {
+        "**/.history/**": true
+    },
+    "todo-tree.filtering.useBuiltInExcludes": true,
+    "workbench.editor.showTabs": true
 }
