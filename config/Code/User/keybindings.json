@@ -1,83 +1,23 @@
-// Place your key bindings in this file to overwrite the defaults
+// Place your key bindings in this file to override the defaults
 [
     {
-        "key": "ctrl+shift+f",
-        "command": "filesExplorer.findInFolder",
-        "when": "explorerViewletVisible && filesExplorerFocus"
+        "key": "ctrl+k ctrl+r",
+        "command": "-workbench.action.keybindingsReference"
+    },
+    {
+        "key": "ctrl+k ctrl+r",
+        "command": "workbench.files.action.showActiveFileInExplorer"
     },
     {
         "key": "ctrl+alt+q",
         "command": "workbench.action.quit"
     },
     {
-        "key": "cmd+q",
+        "key": "ctrl+q",
         "command": "-workbench.action.quit"
     },
     {
-        "key": "cmd+h",
-        "command": "editor.action.startFindReplaceAction"
-    },
-    {
-        "key": "ctrl+shift+alt+f",
-        "command": "-editor.action.startFindReplaceAction"
-    },
-    {
-        "key": "alt+pageup",
-        "command": "cursorHome",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "alt+pagedown",
-        "command": "cursorEnd",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "alt+pagedown",
-        "command": "-scrollPageDown",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "alt+pageup",
-        "command": "-scrollPageUp",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "shift+alt+pageup",
-        "command": "cursorHomeSelect",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "shift+home",
-        "command": "-cursorHomeSelect",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "shift+alt+pagedown",
-        "command": "cursorEndSelect",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "shift+end",
-        "command": "-cursorEndSelect",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "ctrl+shift+c",
-        "command": "-workbench.action.terminal.openNativeConsole",
-        "when": "!terminalFocus"
-    },
-    {
-        "key": "ctrl+k ctrl+shift+r",
-        "command": "workbench.action.terminal.runActiveFile"
-    },
-    {
         "key": "ctrl+k ctrl+space",
-        "command": "editor.action.revealDefinition",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-    },
-    {
-        "key": "f12",
-        "command": "-editor.action.revealDefinition",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+        "command": "editor.action.showDefinitionPreviewHover"
     },
 ]

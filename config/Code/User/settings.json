@@ -101,6 +101,7 @@
     "vim.useCtrlKeys": true,
     "vim.handleKeys": {
         "<C-f>": false,
+        "<C-k>": false,
         "<C-w>": false,
         "<C-s>": false,
         "<C-t>": false,
