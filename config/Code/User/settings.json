@@ -1,6 +1,6 @@
 {
     "breadcrumbs.enabled": true,
-    "editor.renderControlCharacters": false,
+    "editor.renderControlCharacters": true,
     "editor.mouseWheelScrollSensitivity": 1.8,
     "editor.minimap.enabled": true,
     "editor.renderWhitespace": "all",
@@ -138,5 +138,6 @@
     },
     "todo-tree.filtering.useBuiltInExcludes": true,
     "workbench.editor.showTabs": true,
-    "git.untrackedChanges": "separate"
+    "git.untrackedChanges": "separate",
+    "search.location": "sidebar"
 }
