@@ -222,10 +222,22 @@ bindsym $mod+minus scratchpad show
 # No borders or title bars
 for_window [class=".*"] border pixel 2
 
-# Floating window for zoom, except meeting window
+# Zoom
+# Floating window for zoom modal dialogs
 for_window [class="zoom"] floating enable
-for_window [title="Zoom Meeting ID.*"] floating disable
+# Except "main" and "meeting" windows
+for_window [title="^Zoom - .*"] floating disable
+for_window [title="^Zoom Meeting ID.*"] floating disable
+# All zoom windows in dedicated workspace
+for_window [class="zoom"] move to workspace 10
+for_window [title="^Zoom.*"] move to workspace 10
+assign [class="zoom"] workspace number 10
+assign [title="^Zoom.*"] workspace number 10
+# Make the "meeting" window take up most of the workspace
+for_window [title="^Zoom Meeting ID.*"] resize set width 95 ppt height 0
+#assign [title="^Zoom - Pro Account"] resize set width 500 px height 0
 
+# Blueman
 # Floating window for blueman
 for_window [class="Blueman-manager"] floating enable
 
