@@ -244,4 +244,4 @@ for_window [class="Blueman-manager"] floating enable
 # Screenshots
 # https://www.reddit.com/r/i3wm/comments/65vis5/screenshot_commands_from_my_i3_config/dgnic66/
 bindsym Print exec "maim -u -s -n ~/Pictures/Screenshot-$(date -Iseconds | cut -d'+' -f1).png"
-bindsym Mod4+Print exec "maim -u -s -n | xclip -selection clipboard -t image/png"
+bindsym Mod4+Print exec "maim -s -n | xclip -selection clipboard -t image/png"
