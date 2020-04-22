@@ -48,8 +48,9 @@ alias kb=kubebuilder
 shopt -s direxpand
 
 # History
-HISTSIZE=50000
-HISTFILESIZE=50000
+HISTSIZE=100000
+HISTFILESIZE=100000
+HISTTIMEFORMAT="%F %T "
 HISTCONTROL=ignorespace:ignoredups:erasedups
 shopt -s histappend histverify histreedit
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a"
