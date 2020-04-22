@@ -22,9 +22,10 @@ function prependpath() {
 }
 
 # Go
+export GO_VERSION="1.13.8"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
-export GOROOT="$GOPATH/1.13.1"
+export GOROOT="$GOPATH/$GO_VERSION"
 
 prependpath "$GOBIN"
 prependpath "$GOROOT/bin"
@@ -33,6 +34,7 @@ if [ -d "/usr/local/opt/python/libexec/bin" ]; then
 	prependpath "/usr/local/opt/python/libexec/bin"
 fi
 
+# Standard locations
 prependpath "$HOME/bin"
 prependpath "$HOME/.local/bin"
 prependpath "/usr/local/bin"
