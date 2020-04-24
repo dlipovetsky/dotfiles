@@ -192,13 +192,13 @@ workspace 10 output HDMI-2
 bindsym $mod+d exec --no-startup-id rofi -show combi -combi-modi "window#drun" -modi combi
 
 # Bind to i3lock
-bindsym Mod1+Ctrl+l exec --no-startup-id "i3lock -c 000000; xset dpms force off;"
+bindsym Mod1+Ctrl+l exec --no-startup-id "i3lock -c 000000 && xset dpms force off"
 
 # Switch between current workspaces
 bindsym $mod+Tab workspace back_and_forth
 
 # Bluetooth management GUI
-exec_always blueman-tray
+exec_always --no-startup-id blueman-tray
 
 # Notifications
 # Note: dunst should be started by a DBus service
