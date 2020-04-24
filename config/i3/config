@@ -245,3 +245,8 @@ for_window [class="Blueman-manager"] floating enable
 # https://www.reddit.com/r/i3wm/comments/65vis5/screenshot_commands_from_my_i3_config/dgnic66/
 bindsym Print exec "maim -u -s -n ~/Pictures/Screenshot-$(date -Iseconds | cut -d'+' -f1).png"
 bindsym Mod4+Print exec "maim -s -n | xclip -selection clipboard -t image/png"
+
+# Navigate up/down through the column of workspaces on one output
+# (1 to 5 on the left, 6 to 10 on the right)
+bindsym Mod1+Mod4+Up exec --no-startup-id "/home/dlipovetsky/.config/i3/up.sh"
+bindsym Mod1+Mod4+Down exec --no-startup-id "/home/dlipovetsky/.config/i3/dn.sh"
