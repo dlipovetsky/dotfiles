@@ -43,10 +43,10 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+# bindsym $mod+j focus left
+# bindsym $mod+k focus down
+# bindsym $mod+l focus up
+# bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -55,10 +55,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+# bindsym $mod+Shift+j move left
+# bindsym $mod+Shift+k move down
+# bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -118,16 +118,28 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+# bindsym $mod+Shift+1 move container to workspace $ws1
+# bindsym $mod+Shift+2 move container to workspace $ws2
+# bindsym $mod+Shift+3 move container to workspace $ws3
+# bindsym $mod+Shift+4 move container to workspace $ws4
+# bindsym $mod+Shift+5 move container to workspace $ws5
+# bindsym $mod+Shift+6 move container to workspace $ws6
+# bindsym $mod+Shift+7 move container to workspace $ws7
+# bindsym $mod+Shift+8 move container to workspace $ws8
+# bindsym $mod+Shift+9 move container to workspace $ws9
+# bindsym $mod+Shift+0 move container to workspace $ws10
+
+# move focused container to workspace, then change to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -173,7 +185,7 @@ bar {
 # End of standard configuration, start of customization
 
 # Screen layout
-exec --no-startup-id /home/dlipovetsky/.screenlayout/home-desk.sh
+# exec --no-startup-id /home/dlipovetsky/.screenlayout/home-desk.sh
 
 # Statically allocate half of the workspaces to each output
 workspace 1 output DP-1
@@ -192,7 +204,10 @@ workspace 10 output HDMI-2
 bindsym $mod+d exec --no-startup-id rofi -show combi -combi-modi "window#drun" -modi combi
 
 # Bind to i3lock
-bindsym Mod1+Ctrl+l exec --no-startup-id "i3lock -c 000000 && xset dpms force off"
+bindsym $mod+Shift+l exec --no-startup-id "i3lock -c 000000 && xset dpms force off"
+
+# Sleep
+bindsym $mod+Shift+s exec --no-startup-id "i3lock -c 000000 && xset dpms force off && systemctl suspend -i"
 
 # Switch between current workspaces
 bindsym $mod+Tab workspace back_and_forth
@@ -244,9 +259,9 @@ for_window [class="Blueman-manager"] floating enable
 # Screenshots
 # https://www.reddit.com/r/i3wm/comments/65vis5/screenshot_commands_from_my_i3_config/dgnic66/
 bindsym Print exec "maim -u -s -n ~/Pictures/Screenshot-$(date -Iseconds | cut -d'+' -f1).png"
-bindsym Mod4+Print exec "maim -s -n | xclip -selection clipboard -t image/png"
+bindsym $mod+Print exec "maim -s -n | xclip -selection clipboard -t image/png"
 
 # Navigate up/down through the column of workspaces on one output
 # (1 to 5 on the left, 6 to 10 on the right)
-bindsym Mod1+Mod4+Up exec --no-startup-id "/home/dlipovetsky/.config/i3/up.sh"
-bindsym Mod1+Mod4+Down exec --no-startup-id "/home/dlipovetsky/.config/i3/dn.sh"
+bindsym Mod1+$mod+Up exec --no-startup-id "/home/dlipovetsky/.config/i3/up.sh"
+bindsym Mod1+$mod+Down exec --no-startup-id "/home/dlipovetsky/.config/i3/dn.sh"
