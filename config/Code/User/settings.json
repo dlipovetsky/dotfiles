@@ -2,14 +2,12 @@
     "breadcrumbs.enabled": true,
     "editor.renderControlCharacters": true,
     "editor.mouseWheelScrollSensitivity": 1.8,
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "editor.renderWhitespace": "all",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "files.autoSave": "off",
-    "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-
     "git.confirmSync": false,
     "git.autofetch": true,
     "python.pythonPath": "python2",
@@ -22,14 +20,12 @@
     "terminal.integrated.shell.osx": "/usr/local/bin/bash",
     "telemetry.enableTelemetry": false,
     "workbench.editor.enablePreview": true,
-    "workbench.colorTheme": "Visual Studio Light",
-
     // ansible extension
     "files.associations": {
-        "**/*.yml": "ansible"
+        "**/*.yml": "ansible",
+        "**/i3/config": "i3",
     },
     // end ansible extension
-
     // extension settings
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
@@ -56,26 +52,26 @@
     ],
     "go.autocompleteUnimportedPackages": true,
     "go.installDependenciesWhenBuilding": false,
-
     // the below follows https://github.com/golang/tools/blob/master/gopls/doc/vscode.md
     "go.useLanguageServer": true,
     "[go]": {
-        "editor.snippetSuggestions": "none",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
             "source.organizeImports": true,
         },
-        "editor.codeActionsOnSaveTimeout": 3000, // allow more time for import organization
+        // Optional: Disable snippets, as they conflict with completion ranking.
+        "editor.snippetSuggestions": "none",
     },
     "gopls": {
-        "usePlaceholders": true, // add parameter placeholders when completing a function
-
+        // Add parameter placeholders when completing a function.
+        "usePlaceholders": true,
+        // If true, enable additional analyses with staticcheck.
+        // Warning: This will significantly increase memory usage.
+        "staticcheck": false,
         // Experimental settings
         "completeUnimported": true, // autocomplete unimported packages
-        "watchFileChanges": true,  // watch file changes outside of the editor
-        "deepCompletion": true,     // enable deep completion
+        "deepCompletion": true, // enable deep completion
     },
-    "files.eol": "\n", // formatting only supports LF line endings
     "go.languageServerExperimentalFeatures": {
         "format": true,
         "autoComplete": true,
@@ -91,23 +87,24 @@
         "diagnostics": true,
         "documentLink": false,
     },
+    // formatting only supports LF line endings
+    "files.eol": "\n",
     // end go settings
-
     "rewrap.wrappingColumn": 80,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "plantuml.render": "PlantUMLServer",
     "plantuml.server": "http://localhost:9080",
     "markdown.extension.toc.levels": "2..6",
-    "vim.useCtrlKeys": true,
+    "markdown.extension.toc.githubCompatibility": true,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["U"],
+            "after": ["<C-r>"],
+        },
+    ],
+    "vim.useCtrlKeys": false,
     "vim.handleKeys": {
-        "<C-f>": false,
-        "<C-k>": false,
-        "<C-w>": false,
-        "<C-s>": false,
-        "<C-t>": false,
-        "<C-n>": false,
-        "<C-pageup>": false,
-        "<C-pagedown>": false,
+        "<C-v>": true,
     },
     "search.showLineNumbers": true,
     "terraform.indexing": {
@@ -136,8 +133,45 @@
     "files.watcherExclude": {
         "**/.history/**": true
     },
-    "todo-tree.filtering.useBuiltInExcludes": true,
+    "todo-tree.filtering.useBuiltInExcludes": "file excludes",
     "workbench.editor.showTabs": true,
     "git.untrackedChanges": "separate",
-    "search.location": "sidebar"
+    "vim.leader": "<space>",
+    "todo-tree.tree.showScanModeButton": false,
+    "search.enableSearchEditorPreview": true,
+    "vim.sneak": true,
+    "editor.columnSelection": false,
+    "markdown-toc.depthFrom": 2,
+    "cSpell.userWords": [
+        "Distro",
+        "centos",
+        "clusterctl",
+        "containerd",
+        "etcd",
+        "konvoy",
+        "kubeadm",
+        "kubernetes",
+        "toolchain",
+        "xenial"
+    ],
+    "shebang.associations": [
+
+        {
+            "pattern": "^#!.*bash$",
+            "language": "shellscript"
+        }
+    ],
+    "markdown.extension.orderedList.autoRenumber": false,
+    "markdownlint.run": "onSave",
+    "markdownlint.config": {
+        "MD004": { "style": "dash" },
+        "MD007": { "indent": 4 },
+        "MD030": {
+            "ol_multi": 2,
+            "ul_multi": 2
+        },
+    },
+    "gitlens.views.repositories.files.layout": "list",
+    "workbench.colorTheme": "Github Light Theme",
+    "editor.lineHeight": 20
 }
