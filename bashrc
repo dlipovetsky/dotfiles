@@ -20,6 +20,12 @@ PS1="\u@\[\e[33m\]\h :: \[\e[1;34m\]\A :: \[\e[m\]\[\e[1;32m\]\w ::\[\e[m\]\[\e[
 function prependpath() {
 	[[ "$PATH" =~ "$1" ]] || PATH="${1}${PATH:+:${PATH}}"
 }
+# Start from nothing
+unset PATH
+# Export for commands that need to know PATH, e.g., /usr/bin/which
+export PATH=""
+# Add the standard paths
+prependpath "/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin"
 
 # Go
 export GO_VERSION="1.13.8"
@@ -30,19 +36,20 @@ export GOROOT="$GOPATH/$GO_VERSION"
 prependpath "$GOBIN"
 prependpath "$GOROOT/bin"
 
-if [ -d "/usr/local/opt/python/libexec/bin" ]; then
-	prependpath "/usr/local/opt/python/libexec/bin"
-fi
-
 # Standard locations
-prependpath "$HOME/bin"
 prependpath "$HOME/.local/bin"
 prependpath "/usr/local/bin"
 
 # kubebuilder
-prependpath "$HOME/.local/kubebuilder/bin"
+ln --force --symbol "$HOME/.local/kubebuilder/bin/kubebuilder" "$HOME/.local/bin/kubebuilder"
+# Expose kubebuilder in path, but hide the etcd, kube-apiserver, and kubectl
+# binaries to avoid conflict
 export KUBEBUILDER_ASSETS="$HOME/.local/kubebuilder/bin"
 alias kb=kubebuilder
+
+# krew
+export KREW_ROOT=$HOME/.krew
+prependpath "$KREW_ROOT/bin"
 
 # Bash options
 shopt -s direxpand
