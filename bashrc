@@ -55,8 +55,8 @@ prependpath "$KREW_ROOT/bin"
 shopt -s direxpand
 
 # History
-HISTSIZE=100000
-HISTFILESIZE=100000
+HISTSIZE=10000000
+HISTFILESIZE=10000000
 HISTTIMEFORMAT="%F %T "
 HISTCONTROL=ignorespace:ignoredups:erasedups
 shopt -s histappend histverify histreedit
