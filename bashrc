@@ -74,7 +74,7 @@ alias ag="ag --pager 'less -RFX'"
 alias ll="ls -lha"
 
 # ripgrep
-rg()
+lg()
 {
 	/usr/bin/rg -p "$@" | less -RFX
 }
@@ -109,7 +109,7 @@ if type -t "__git_complete" &>/dev/null; then
 	__git_complete gcp _git_cherry_pick
 fi
 
-# Kubernetes 
+# Kubernetes
 alias kc=kubectl
 export KUBE_EDITOR=vim
 [ -f $HOME/.kube/completion.bash.inc ] && source $HOME/.kube/completion.bash.inc
@@ -126,7 +126,7 @@ export N_PREFIX=$HOME/.local
 # keybindings when installed from source
 [ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
 [ -n "$TMUX_PANE" ] && FZF_TMUX=1
-FZF_DEFAULT_COMMAND="fd --type file --color=always --hidden --follow --exclude .git"
+FZF_DEFAULT_COMMAND="fd --type file --color=always --hidden --follow --absolute-path --exclude .git"
 FZF_ALT_C_COMMAND="fd --type directory --color=always --exclude .git"
 FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 FZF_DEFAULT_OPTS="--ansi"
