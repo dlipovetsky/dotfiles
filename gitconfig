@@ -5,3 +5,10 @@
 	templatedir = ~/.git-templates
 [rebase]
 	autosquash = true
+	autostash = true
+[color "diff"]
+	whitespace = red reverse
+[diff]
+	wsErrorHighlight = all
+[push]
+	default = current
