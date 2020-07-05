@@ -36,6 +36,9 @@ export GOROOT="$GOPATH/$GO_VERSION"
 prependpath "$GOBIN"
 prependpath "$GOROOT/bin"
 
+# Rust
+prependpath "$HOME/.cargo/bin"
+
 # Standard locations
 prependpath "$HOME/.local/bin"
 prependpath "/usr/local/bin"
