@@ -132,17 +132,19 @@ no_focus [window_type="notification"]
 
 # Rofi
 # Desktop Applications and Windows
-bindsym $mod+space exec --no-startup-id rofi -show combi -combi-modi "window#drun" -modi combi
+# bindsym $mod+space exec --no-startup-id rofi -show combi -combi-modi "window#drun" -modi combi -matching fuzzy
 
-# Vivaldi
+bindsym $mod+space exec --no-startup-id "rofi -modi drun,window,\\"calc:qalc +u8 -nocurrencies\\" -show drun -matching fuzzy"
+
+# Browser
 # Quick focus
-bindsym $mod+v [class="Vivaldi-stable"] focus
+bindsym $mod+b [class="Firefox"] focus
 
 # Terminal
 # Start
-bindsym $mod+Shift+t exec i3-sensible-terminal
+bindsym $mod+Shift+t exec alacritty
 # Quick focus
-bindsym $mod+t [class="Gnome-terminal"] focus
+bindsym $mod+t [class="Alacritty"] focus
 
 # Blueman (bluetooth manager)
 for_window [class="Blueman-manager"] floating enable
@@ -168,10 +170,17 @@ bindsym $mod+4 exec --no-startup-id i3-tabn 3
 bindsym $mod+5 exec --no-startup-id i3-tabn 4
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+#client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused          #4c7899 #61e8d2 #000000 #2e9ef4   #285577
 # client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #4c7899 #222222 #dddddd #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
+
+# Bluetooth
+# Pair PL_BBFIT and switch to HFP/HSP profile
+bindsym $mod+h exec --no-startup-id "bluetoothctl connect E4:22:A5:96:17:6C && pactl set-card-profile bluez_card.E4_22_A5_96_17_6C headset_head_unit"
+# Pair PL_BBFIT
+#bindsym $mod+h exec --no-startup-id bluetoothctl connect E4:22:A5:96:17:6C
