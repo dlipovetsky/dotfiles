@@ -118,13 +118,14 @@ bindsym $mod+minus scratchpad show
 
 # GNOME Flashback
 # Logout
-bindsym Ctrl+$mod+Mod1+x exec --no-startup-id "i3-msg exit"
+# The dbus endpoint `org.gnome.SessionManager.Logout` does not show a prompt, so use `gnome-session-quit` instead.
+bindsym Ctrl+$mod+Mod1+x exec --no-startup-id "gnome-session-quit"
 # Lock
 bindsym Ctrl+$mod+Mod1+l exec --no-startup-id "xset dpms force off && dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock"
 # Suspend
 bindsym Ctrl+$mod+Mod1+s exec --no-startup-id "xset dpms force off && dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock && sleep 2 && systemctl suspend -i"
 # Restart
-bindsym Ctrl+$mod+Mod1+r exec --no-startup-id "dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Reboot
+bindsym Ctrl+$mod+Mod1+r exec --no-startup-id "dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Reboot"
 # Shutdown
 bindsym Ctrl+$mod+Mod1+q exec --no-startup-id "dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Shutdown"
 # Notifications
