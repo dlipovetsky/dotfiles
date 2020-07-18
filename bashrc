@@ -6,7 +6,16 @@ elif [ -f "/etc/bashrc" ]; then
 fi
 
 # Locale
+# Use "British" time for its 24-hour clock and week starting on Monday
 export LC_TIME="en_GB.UTF-8"
+
+# Ensure TZ is set to prevent glibc from making repetitive syscalls
+# The zoom client does this, in particular.
+# > It turns out that the localtime function in glibc will check if the TZ
+# > environment variable is set. If it is not set (the two Ubuntus I’ve tested do
+# > not set it), then glibc will use the stat system call every time localtime is
+# > called. -- https://blog.packagecloud.io/eng/2017/02/21/set-environment-variable-save-thousands-of-system-calls/
+export TZ=":/etc/localtime"
 
 # Prompt
 function parse_git_branch()
