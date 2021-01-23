@@ -4,7 +4,6 @@
             "source.organizeImports": true
         },
         "editor.formatOnSave": true,
-        "editor.snippetSuggestions": "none"
     },
     "breadcrumbs.enabled": true,
     "cSpell.userWords": [
@@ -51,7 +50,8 @@
     "git.confirmSync": false,
     "git.untrackedChanges": "separate",
     "githubPullRequests.remotes": [
-        "mesosphere"
+        "mesosphere",
+        "dlipovetsky"
     ],
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
