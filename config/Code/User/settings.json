@@ -1,157 +1,12 @@
 {
-    "breadcrumbs.enabled": true,
-    "editor.renderControlCharacters": true,
-    "editor.mouseWheelScrollSensitivity": 1.8,
-    "editor.minimap.enabled": false,
-    "editor.renderWhitespace": "all",
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "files.autoSave": "off",
-    "git.confirmSync": false,
-    "git.autofetch": true,
-    "search.exclude": {
-        "**/.git": true,
-        "**/node_modules": true,
-        "**/bower_components": true
-    },
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "workbench.editor.enablePreview": true,
-    // For association values see https://code.visualstudio.com/docs/languages/identifiers
-    "files.associations": {
-        "**/i3/config": "i3",
-        "*.dockerfile": "dockerfile",
-        "Dockerfile.*": "dockerfile"
-    },
-
-    // extension settings
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true,
-        "suppressUpdateNotice": false,
-        "suppressWelcomeNotice": true
-    },
-    "gitlens.keymap": "alternate",
-    "gitlens.views.lineHistory.enabled": true,
-    "gitlens.codeLens.recentChange.enabled": false,
-
-    // go settings
-    "go.buildOnSave": "off",
-    "go.lintTool": "golangci-lint",
-    // "go.lintFlags": [
-    //     "--fast"
-    // ],
-    "go.autocompleteUnimportedPackages": true,
-    "go.installDependenciesWhenBuilding": false,
-    // the below follows https://github.com/golang/tools/blob/master/gopls/doc/vscode.md
-    "go.useLanguageServer": true,
     "[go]": {
-        "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true,
+            "source.organizeImports": true
         },
-        // Optional: Disable snippets, as they conflict with completion ranking.
-        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.snippetSuggestions": "none"
     },
-    "gopls": {
-        "build.experimentalPackageCacheKey": true,
-        "build.experimentalWorkspaceModule": true,
-        // Add parameter placeholders when completing a function.
-        "usePlaceholders": true,
-        // If true, enable additional analyses with staticcheck.
-        // Warning: This will significantly increase memory usage.
-        "staticcheck": true,
-    },
-    // formatting only supports LF line endings
-    "files.eol": "\n",
-    // end go settings
-    "rewrap.wrappingColumn": 80,
-    "workbench.editor.enablePreviewFromQuickOpen": false,
-    "plantuml.render": "PlantUMLServer",
-    "plantuml.server": "http://localhost:9080",
-    "markdown.extension.toc.levels": "2..6",
-    "markdown.extension.toc.githubCompatibility": true,
-    "vim.overrideCopy": true,
-    "vim.hlsearch": false,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.normalModeKeyBindings": [
-        {
-            "before": ["U"],
-            "after": ["<C-r>"],
-        },
-    ],
-    "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "p",
-            ],
-            "after": [
-                "p",
-                "g",
-                "v",
-                "y"
-            ]
-        },
-        {
-            "before": [
-                "P",
-            ],
-            "after": [
-                "P",
-                "g",
-                "v",
-                "y"
-            ]
-        }
-    ],
-    "vim.useCtrlKeys": false,
-    "vim.handleKeys": {
-        "<C-v>": true,
-    },
-    "search.showLineNumbers": true,
-    "terraform.indexing": {
-        "enabled": false,
-        "liveIndexing": false,
-        "delay": 500,
-        "exclude": [
-            ".terraform/**/*",
-            "**/.terraform/**/*"
-        ]
-    },
-    "go.formatTool": "goimports",
-    "files.exclude": {
-        "**/.history": true
-    },
-    "markdown.extension.showExplorer": true,
-    "explorer.autoReveal": false,
-    "window.zoomLevel": 2,
-    "editor.fontSize": 12,
-    "debug.console.fontSize": 12,
-    "terminal.integrated.fontSize": 12,
-    "vim.easymotion": true,
-    "vim.easymotionMarkerFontWeight": "regular",
-    "vim.easymotionMarkerForegroundColorOneChar": "red",
-    "vim.easymotionMarkerBackgroundColor": "white",
-    "vim.easymotionMarkerForegroundColorTwoCharFirst": "red",
-    "files.watcherExclude": {
-        "**/.history/**": true
-    },
-    "todo-tree.filtering.useBuiltInExcludes": "file excludes",
-    "workbench.editor.showTabs": true,
-    "git.untrackedChanges": "separate",
-    "vim.leader": "<space>",
-    "todo-tree.tree.showScanModeButton": false,
-    "search.enableSearchEditorPreview": true,
-    "vim.sneak": true,
-    "editor.columnSelection": false,
-    "markdown-toc.depthFrom": 2,
+    "breadcrumbs.enabled": true,
     "cSpell.userWords": [
         "Distro",
         "centos",
@@ -164,48 +19,177 @@
         "toolchain",
         "xenial"
     ],
-    "shebang.associations": [
-
-        {
-            "pattern": "^#!.*bash$",
-            "language": "shellscript"
-        }
-    ],
-    "markdown.extension.orderedList.autoRenumber": false,
-    "markdownlint.run": "onSave",
-    "markdownlint.config": {
-        "MD004": { "style": "dash" },
-        "MD007": { "indent": 4 },
-        // "MD030": {
-        //     "ol_single": 2,
-        //     "ol_multi": 2,
-        //     "ul_single": 2,
-        //     "ul_multi": 2,
-        // },
-    },
-    "gitlens.views.repositories.files.layout": "list",
+    "debug.console.fontSize": 12,
+    "editor.codeActionsOnSave": null,
+    "editor.columnSelection": false,
+    "editor.fontSize": 12,
     "editor.lineHeight": 20,
-    "git.alwaysSignOff": true,
-    "workbench.colorTheme": "Default High Contrast",
-    "workbench.panel.defaultLocation": "right",
-    "markdown.preview.breaks": true,
-    "markdown.preview.openMarkdownLinks": "inEditor",
-
-    "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
-    "markdown.preview.fontSize": 15,
-
-    "zenMode.centerLayout": false,
+    "editor.minimap.enabled": false,
+    "editor.mouseWheelScrollSensitivity": 1.8,
+    "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "all",
+    "explorer.autoReveal": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": false,
-    "go.testEnvVars": {
-        "GINKGO_LIST": "true",
+    "files.associations": {
+        "*.dockerfile": "dockerfile",
+        "**/i3/config": "i3",
+        "Dockerfile.*": "dockerfile"
     },
-    "quickNotes.fileName": "./.vscode/notes.md",
-    "zenMode.hideLineNumbers": false,
-    "workbench.sideBar.location": "left",
-    "typescript.updateImportsOnFileMove.enabled": "always",
+    "files.autoSave": "off",
+    "files.eol": "\n",
+    "files.exclude": {
+        "**/.history": true
+    },
+    "files.watcherExclude": {
+        "**/.history/**": true
+    },
     "git.allowForcePush": true,
+    "git.alwaysSignOff": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.untrackedChanges": "separate",
     "githubPullRequests.remotes": [
         "mesosphere"
     ],
-    "editor.codeActionsOnSave": null,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "gitlens.codeLens.recentChange.enabled": false,
+    "gitlens.keymap": "alternate",
+    "gitlens.views.lineHistory.enabled": true,
+    "gitlens.views.repositories.files.layout": "list",
+    "go.autocompleteUnimportedPackages": true,
+    "go.buildOnSave": "off",
+    "go.formatTool": "goimports",
+    "go.installDependenciesWhenBuilding": false,
+    "go.lintTool": "golangci-lint",
+    "go.testEnvVars": {
+        "GINKGO_LIST": "true"
+    },
+    "go.useLanguageServer": true,
+    "gopls": {
+        "build.experimentalPackageCacheKey": true,
+        "build.experimentalWorkspaceModule": true,
+        "staticcheck": true,
+        "usePlaceholders": true
+    },
+    "markdown-toc.depthFrom": 2,
+    "markdown.extension.orderedList.autoRenumber": false,
+    "markdown.extension.showExplorer": true,
+    "markdown.extension.toc.githubCompatibility": true,
+    "markdown.extension.toc.levels": "2..6",
+    "markdown.preview.breaks": true,
+    "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
+    "markdown.preview.fontSize": 15,
+    "markdown.preview.openMarkdownLinks": "inEditor",
+    "markdownlint.config": {
+        "MD004": {
+            "style": "dash"
+        },
+        "MD007": {
+            "indent": 4
+        }
+    },
+    "markdownlint.run": "onSave",
+    "plantuml.render": "PlantUMLServer",
+    "plantuml.server": "http://localhost:9080",
+    "quickNotes.fileName": "./.vscode/notes.md",
+    "rewrap.wrappingColumn": 80,
+    "search.enableSearchEditorPreview": true,
+    "search.exclude": {
+        "**/.git": true,
+        "**/bower_components": true,
+        "**/node_modules": true
+    },
+    "search.showLineNumbers": true,
+    "shebang.associations": [
+        {
+            "language": "shellscript",
+            "pattern": "^#!.*bash$"
+        }
+    ],
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "terminal.integrated.fontSize": 12,
+    "terraform.indexing": {
+        "delay": 500,
+        "enabled": false,
+        "exclude": [
+            ".terraform/**/*",
+            "**/.terraform/**/*"
+        ],
+        "liveIndexing": false
+    },
+    "todo-tree.filtering.useBuiltInExcludes": "file excludes",
+    "todo-tree.tree.showScanModeButton": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "vim.easymotion": true,
+    "vim.easymotionMarkerBackgroundColor": "white",
+    "vim.easymotionMarkerFontWeight": "regular",
+    "vim.easymotionMarkerForegroundColorOneChar": "red",
+    "vim.easymotionMarkerForegroundColorTwoCharFirst": "red",
+    "vim.handleKeys": {
+        "<C-v>": true
+    },
+    "vim.hlsearch": false,
+    "vim.incsearch": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+        {
+            "after": [
+                "<C-r>"
+            ],
+            "before": [
+                "U"
+            ]
+        }
+    ],
+    "vim.overrideCopy": true,
+    "vim.sneak": true,
+    "vim.useCtrlKeys": false,
+    "vim.useSystemClipboard": true,
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "after": [
+                "p",
+                "g",
+                "v",
+                "y"
+            ],
+            "before": [
+                "p"
+            ]
+        },
+        {
+            "after": [
+                "P",
+                "g",
+                "v",
+                "y"
+            ],
+            "before": [
+                "P"
+            ]
+        }
+    ],
+    "window.zoomLevel": 2,
+    "workbench.colorTheme": "Default High Contrast",
+    "workbench.editor.enablePreview": true,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.showTabs": true,
+    "workbench.panel.defaultLocation": "right",
+    "workbench.sideBar.location": "left",
+    "zenMode.centerLayout": false,
+    "zenMode.hideLineNumbers": false
 }
