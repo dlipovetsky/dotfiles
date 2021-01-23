@@ -37,7 +37,7 @@ export PATH=""
 prependpath "/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin"
 
 # Go
-export GO_VERSION="1.13.8"
+export GO_VERSION="1.15.5"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export GOROOT="$GOPATH/$GO_VERSION"
@@ -81,6 +81,7 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a"
 export CLICOLOR=1
 
 # Aliases
+alias ls="ls --color=auto"
 alias vi=vim
 alias ag="ag --pager 'less -RFX'"
 alias ll="ls -lha"
@@ -92,6 +93,7 @@ lg()
 }
 
 # Git Aliases
+# alias g="git"
 alias gst="git status"
 alias gco="git checkout"
 alias gbr="git branch"
@@ -107,24 +109,27 @@ alias gcp="git cherry-pick"
 alias grs="git reset"
 
 # Command completion for git aliases
-if type -t "__git_complete" &>/dev/null; then
-	__git_complete gco _git_checkout
-	__git_complete gbr _git_branch
-	__git_complete gct _git_commit
-	__git_complete grb _git_rebase
-	__git_complete gdf _git_diff
-	__git_complete glg _git_log
-	__git_complete gpl _git_pull
-	__git_complete gps _git_push
-	__git_complete gad _git_add
-	__git_complete grm _git_rm
-	__git_complete gcp _git_cherry_pick
-fi
+# if type -t "__git_complete" &>/dev/null; then
+# 	__git_complete gco _git_checkout
+# 	__git_complete gbr _git_branch
+# 	__git_complete gct _git_commit
+# 	__git_complete grb _git_rebase
+# 	__git_complete gdf _git_diff
+# 	__git_complete glg _git_log
+# 	__git_complete gpl _git_pull
+# 	__git_complete gps _git_push
+# 	__git_complete gad _git_add
+# 	__git_complete grm _git_rm
+# 	__git_complete gcp _git_cherry_pick
+# fi
 
 # Kubernetes
 alias kc=kubectl
 export KUBE_EDITOR=vim
 [ -f $HOME/.kube/completion.bash.inc ] && source $HOME/.kube/completion.bash.inc
+
+# Helm
+alias helm2init='kubectl --namespace kube-system create serviceaccount tiller && kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller && helm2 init --service-account tiller --wait'
 
 # n (npm version manager)
 export N_PREFIX=$HOME/.local
@@ -144,3 +149,8 @@ FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 FZF_DEFAULT_OPTS="--ansi"
 
 source $HOME/.d2iqrc
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
