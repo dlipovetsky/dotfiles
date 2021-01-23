@@ -7,25 +7,23 @@
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "files.autoSave": "off",
-    "files.trimTrailingWhitespace": true,
     "git.confirmSync": false,
     "git.autofetch": true,
-    "python.pythonPath": "python2",
     "search.exclude": {
         "**/.git": true,
         "**/node_modules": true,
         "**/bower_components": true
     },
     "telemetry.enableCrashReporter": false,
-    "terminal.integrated.shell.osx": "/usr/local/bin/bash",
     "telemetry.enableTelemetry": false,
     "workbench.editor.enablePreview": true,
-    // ansible extension
+    // For association values see https://code.visualstudio.com/docs/languages/identifiers
     "files.associations": {
-        "**/*.yml": "ansible",
         "**/i3/config": "i3",
+        "*.dockerfile": "dockerfile",
+        "Dockerfile.*": "dockerfile"
     },
-    // end ansible extension
+
     // extension settings
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
@@ -40,16 +38,15 @@
         "suppressWelcomeNotice": true
     },
     "gitlens.keymap": "alternate",
-    "gitlens.advanced.telemetry.enabled": false,
-    "gitlens.views.fileHistory.enabled": true,
     "gitlens.views.lineHistory.enabled": true,
     "gitlens.codeLens.recentChange.enabled": false,
+
     // go settings
     "go.buildOnSave": "off",
     "go.lintTool": "golangci-lint",
-    "go.lintFlags": [
-        "--fast"
-    ],
+    // "go.lintFlags": [
+    //     "--fast"
+    // ],
     "go.autocompleteUnimportedPackages": true,
     "go.installDependenciesWhenBuilding": false,
     // the below follows https://github.com/golang/tools/blob/master/gopls/doc/vscode.md
@@ -63,29 +60,13 @@
         "editor.snippetSuggestions": "none",
     },
     "gopls": {
+        "build.experimentalPackageCacheKey": true,
+        "build.experimentalWorkspaceModule": true,
         // Add parameter placeholders when completing a function.
         "usePlaceholders": true,
         // If true, enable additional analyses with staticcheck.
         // Warning: This will significantly increase memory usage.
-        "staticcheck": false,
-        // Experimental settings
-        "completeUnimported": true, // autocomplete unimported packages
-        "deepCompletion": true, // enable deep completion
-    },
-    "go.languageServerExperimentalFeatures": {
-        "format": true,
-        "autoComplete": true,
-        "rename": true,
-        "goToDefinition": true,
-        "hover": true,
-        "signatureHelp": true,
-        "goToTypeDefinition": true,
-        "goToImplementation": true,
-        "documentSymbols": true,
-        "workspaceSymbols": true,
-        "findReferences": true,
-        "diagnostics": true,
-        "documentLink": false,
+        "staticcheck": true,
     },
     // formatting only supports LF line endings
     "files.eol": "\n",
@@ -96,11 +77,39 @@
     "plantuml.server": "http://localhost:9080",
     "markdown.extension.toc.levels": "2..6",
     "markdown.extension.toc.githubCompatibility": true,
+    "vim.overrideCopy": true,
+    "vim.hlsearch": false,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
     "vim.normalModeKeyBindings": [
         {
             "before": ["U"],
             "after": ["<C-r>"],
         },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "p",
+            ],
+            "after": [
+                "p",
+                "g",
+                "v",
+                "y"
+            ]
+        },
+        {
+            "before": [
+                "P",
+            ],
+            "after": [
+                "P",
+                "g",
+                "v",
+                "y"
+            ]
+        }
     ],
     "vim.useCtrlKeys": false,
     "vim.handleKeys": {
@@ -125,11 +134,12 @@
     "window.zoomLevel": 2,
     "editor.fontSize": 12,
     "debug.console.fontSize": 12,
-    "markdown.preview.fontSize": 12,
     "terminal.integrated.fontSize": 12,
     "vim.easymotion": true,
-    "vim.easymotionMarkerFontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "vim.easymotionMarkerFontWeight": "bold",
+    "vim.easymotionMarkerFontWeight": "regular",
+    "vim.easymotionMarkerForegroundColorOneChar": "red",
+    "vim.easymotionMarkerBackgroundColor": "white",
+    "vim.easymotionMarkerForegroundColorTwoCharFirst": "red",
     "files.watcherExclude": {
         "**/.history/**": true
     },
@@ -166,12 +176,36 @@
     "markdownlint.config": {
         "MD004": { "style": "dash" },
         "MD007": { "indent": 4 },
-        "MD030": {
-            "ol_multi": 2,
-            "ul_multi": 2
-        },
+        // "MD030": {
+        //     "ol_single": 2,
+        //     "ol_multi": 2,
+        //     "ul_single": 2,
+        //     "ul_multi": 2,
+        // },
     },
     "gitlens.views.repositories.files.layout": "list",
-    "workbench.colorTheme": "Github Light Theme",
-    "editor.lineHeight": 20
+    "editor.lineHeight": 20,
+    "git.alwaysSignOff": true,
+    "workbench.colorTheme": "Default High Contrast",
+    "workbench.panel.defaultLocation": "right",
+    "markdown.preview.breaks": true,
+    "markdown.preview.openMarkdownLinks": "inEditor",
+
+    "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
+    "markdown.preview.fontSize": 15,
+
+    "zenMode.centerLayout": false,
+    "extensions.ignoreRecommendations": false,
+    "go.testEnvVars": {
+        "GINKGO_LIST": "true",
+    },
+    "quickNotes.fileName": "./.vscode/notes.md",
+    "zenMode.hideLineNumbers": false,
+    "workbench.sideBar.location": "left",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "git.allowForcePush": true,
+    "githubPullRequests.remotes": [
+        "mesosphere"
+    ],
+    "editor.codeActionsOnSave": null,
 }
