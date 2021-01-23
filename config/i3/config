@@ -26,16 +26,16 @@ floating_modifier $mod
 bindsym $mod+Shift+q kill
 
 # Move focus
+bindsym $mod+Right focus right
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
-bindsym $mod+Right focus right
 
 # Move window
+bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+Shift+s layout stacking
@@ -58,22 +58,22 @@ bindsym $mod+Shift+z focus child
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
 set $ws2 "2"
+set $ws3 "3"
+
+# Make workspace appear on the current output
+bindsym $mod+Shift+1 [workspace=$ws1 ] move workspace to output current; workspace $ws1
+bindsym $mod+Shift+2 [workspace=$ws2 ] move workspace to output current; workspace $ws2
+bindsym $mod+Shift+3 [workspace=$ws3 ] move workspace to output current; workspace $ws3
 
 # switch to workspace
-# bindsym $mod+bracketleft workspace prev
-# bindsym $mod+bracketright workspace next
-# bindsym $mod+backslash workspace back_and_forth
-bindsym  $mod+Ctrl+Left workspace prev
-bindsym  $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Up workspace back_and_forth
 
-# move focused container to workspace
-# bindsym $mod+Shift+bracketleft move container to workspace prev
-# bindsym $mod+Shift+bracketright move container to workspace next
-# bindsym $mod+Shift+backslash move container to workspace back_and_forth
-bindsym $mod+Shift+Ctrl+Left move container to workspace prev
-bindsym $mod+Shift+Ctrl+Right move container to workspace next
-bindsym $mod+Shift+Ctrl+Up move container to workspace back_and_forth
+# move focused container to workspace and preserve focus
+bindsym $mod+Shift+Ctrl+Left move container to workspace prev, workspace prev
+bindsym $mod+Shift+Ctrl+Right move container to workspace next, workspace next
+bindsym $mod+Shift+Ctrl+Up move container to workspace back_and_forth, workspace back_and_forth
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -108,7 +108,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # enter fullscreen mode for the focused container
-bindsym $mod+Return fullscreen toggle
+bindsym $mod+plus fullscreen toggle
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -170,6 +170,10 @@ bindsym $mod+3 exec --no-startup-id i3-tabn 2
 bindsym $mod+4 exec --no-startup-id i3-tabn 3
 bindsym $mod+5 exec --no-startup-id i3-tabn 4
 
+# Select window with wmfocus
+#bindsym --release $mod+space exec --no-startup-id wmfocus -f "Droid Sans":200 --chars 1234567890
+bindsym --release $mod+Tab exec --no-startup-id wmfocus -f "Droid Sans":400 --chars qwertyuiop
+
 # class                 border  backgr. text    indicator child_border
 #client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
 client.focused          #4c7899 #61e8d2 #000000 #2e9ef4   #285577
@@ -185,3 +189,5 @@ client.background       #ffffff
 bindsym $mod+h exec --no-startup-id "bluetoothctl connect E4:22:A5:96:17:6C && pactl set-card-profile bluez_card.E4_22_A5_96_17_6C headset_head_unit"
 # Pair PL_BBFIT
 #bindsym $mod+h exec --no-startup-id bluetoothctl connect E4:22:A5:96:17:6C
+
+exec_always --no-startup-id a11y-dbus-running.sh
