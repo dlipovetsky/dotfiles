@@ -1,6 +1,11 @@
 .include /etc/pulse/default.pa
 
+# use different heuristics to switch bluetooth profiles
+# broken with fedora 31 + kde plasmashell (keeps switching back and forth)
+#.nofail
+#unload-module module-bluetooth-policy
+#load-module module-bluetooth-policy auto_switch=2
+#.fail
+
 # automatically switch to newly-connected devices
 load-module module-switch-on-connect
-# or switch also to newly-connected virtual devices
-load-module module-switch-on-connect ignore_virtual=no
