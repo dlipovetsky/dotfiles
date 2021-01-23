@@ -1,1 +1,18 @@
-clear Lock
+! ! See https://unix.stackexchange.com/questions/108207/how-to-map-caps-lock-as-the-compose-key-using-xmodmap-portably-and-idempotently
+! clear Lock
+! "Compose" method
+! keycode 66 = Multi_key
+! ! "Third-level chooser" method
+! keycode 66 = ISO_Level3_Shift
+
+! Swap caps lock and escape
+! remove Lock = Caps_Lock
+! keysym Escape = Caps_Lock
+! keysym Caps_Lock = Escape
+! add Lock = Caps_Lock
+
+! Swap Super_L and Alt_L
+
+! Swap Super_R and Alt_R
+
+! Swap Alt_R and Print Screen
