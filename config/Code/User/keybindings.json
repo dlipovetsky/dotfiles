@@ -42,4 +42,8 @@
         "key": "ctrl+shift+k",
         "command": "workbench.view.extension.bookmarks"
     },
+    {
+        "key": "shift+alt+g",
+        "command": "ginkgotools.GotoSymbolInEditor"
+    },
 ]

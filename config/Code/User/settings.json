@@ -19,7 +19,6 @@
         "xenial"
     ],
     "debug.console.fontSize": 12,
-    "editor.codeActionsOnSave": null,
     "editor.columnSelection": false,
     "editor.fontSize": 12,
     "editor.lineHeight": 20,
@@ -34,7 +33,8 @@
     "files.associations": {
         "*.dockerfile": "dockerfile",
         "**/i3/config": "i3",
-        "Dockerfile.*": "dockerfile"
+        "Dockerfile.*": "dockerfile",
+        "Tiltfile": "python"
     },
     "files.autoSave": "off",
     "files.eol": "\n",
@@ -74,15 +74,17 @@
     "go.formatTool": "goimports",
     "go.installDependenciesWhenBuilding": false,
     "go.lintTool": "golangci-lint",
+    "go.lintOnSave": "file",
     "go.testEnvVars": {
         "GINKGO_LIST": "true"
     },
     "go.useLanguageServer": true,
     "gopls": {
-        "build.experimentalPackageCacheKey": true,
         "build.experimentalWorkspaceModule": true,
-        "staticcheck": true,
-        "usePlaceholders": true
+        "build.expandWorkspaceToModule": true,
+        "build.experimentalPackageCacheKey": true,
+        "ui.diagnostic.staticcheck": false,
+        "ui.completion.usePlaceholders": true,
     },
     "markdown-toc.depthFrom": 2,
     "markdown.extension.orderedList.autoRenumber": false,
@@ -184,12 +186,18 @@
         }
     ],
     "window.zoomLevel": 2,
-    "workbench.colorTheme": "Default High Contrast",
+    "workbench.colorTheme": "Github Light Theme",
     "workbench.editor.enablePreview": true,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.showTabs": true,
     "workbench.panel.defaultLocation": "right",
     "workbench.sideBar.location": "left",
     "zenMode.centerLayout": false,
-    "zenMode.hideLineNumbers": false
+    "zenMode.hideLineNumbers": false,
+    "typescript.implementationsCodeLens.enabled": true,
+    "eslint.lintTask.enable": true,
+    "eslint.run": "onSave",
+    "eslint.alwaysShowStatus": true,
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "editor.wordWrap": "on"
 }
