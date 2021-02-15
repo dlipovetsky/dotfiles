@@ -143,9 +143,9 @@ bindsym $mod+b [class="Firefox"] focus
 
 # Terminal
 # Start
-bindsym $mod+Shift+t exec alacritty
+bindsym $mod+Shift+t exec gnome-terminal
 # Quick focus
-bindsym $mod+t [class="Alacritty"] focus
+bindsym $mod+t [class="Gnome-terminal"] focus
 
 # Blueman (bluetooth manager)
 for_window [class="Blueman-manager"] floating enable
