@@ -60,14 +60,9 @@
         "suppressGitVersionWarning": false,
         "suppressLineUncommittedWarning": false,
         "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true,
-        "suppressUpdateNotice": false,
-        "suppressWelcomeNotice": true
     },
     "gitlens.codeLens.recentChange.enabled": false,
     "gitlens.keymap": "alternate",
-    "gitlens.views.lineHistory.enabled": true,
     "gitlens.views.repositories.files.layout": "list",
     "go.autocompleteUnimportedPackages": true,
     "go.buildOnSave": "off",
@@ -81,7 +76,7 @@
     "go.useLanguageServer": true,
     "gopls": {
         "build.experimentalWorkspaceModule": true,
-        "build.expandWorkspaceToModule": true,
+        // "build.expandWorkspaceToModule": true,
         "build.experimentalPackageCacheKey": true,
         "ui.diagnostic.staticcheck": false,
         "ui.completion.usePlaceholders": true,
@@ -199,5 +194,8 @@
     "eslint.run": "onSave",
     "eslint.alwaysShowStatus": true,
     "terminal.integrated.shell.linux": "/bin/bash",
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "workspaceSidebar.folder": "/home/dlipovetsky/projects",
+    "window.titleBarStyle": "custom",
+    "diffEditor.renderSideBySide": false // workaround for right-click context menu selection made unexpectedly (https://github.com/microsoft/vscode/issues/113175)
 }
