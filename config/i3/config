@@ -117,6 +117,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 bindsym $mod+minus scratchpad show
 
 # GNOME Flashback
+exec --no-startup-id gnome-flashback
 # Logout
 # The dbus endpoint `org.gnome.SessionManager.Logout` does not show a prompt, so use `gnome-session-quit` instead.
 bindsym Ctrl+$mod+Mod1+x exec --no-startup-id "gnome-session-quit"
@@ -125,17 +126,15 @@ bindsym Ctrl+$mod+Mod1+l exec --no-startup-id "xset dpms force off && dbus-send 
 # Suspend
 bindsym Ctrl+$mod+Mod1+s exec --no-startup-id "xset dpms force off && dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock && sleep 2 && systemctl suspend -i"
 # Restart
-bindsym Ctrl+$mod+Mod1+r exec --no-startup-id "dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Reboot"
+bindsym Ctrl+$mod+Mod1+r exec --no-startup-id "dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.RequestReboot"
 # Shutdown
 bindsym Ctrl+$mod+Mod1+q exec --no-startup-id "dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Shutdown"
 # Notifications
 no_focus [window_type="notification"]
 
 # Rofi
-# Desktop Applications and Windows
-# bindsym $mod+space exec --no-startup-id rofi -show combi -combi-modi "window#drun" -modi combi -matching fuzzy
-
-bindsym $mod+space exec --no-startup-id "rofi -modi drun,window,\\"calc:qalc +u8 -nocurrencies\\" -show drun -matching fuzzy"
+# Desktop Applications and Windows (use Shift+Right to switch)
+bindsym $mod+space exec --no-startup-id "rofi -modi drun,window -show drun"
 
 # Browser
 # Quick focus
@@ -172,7 +171,7 @@ bindsym $mod+5 exec --no-startup-id i3-tabn 4
 
 # Select window with wmfocus
 #bindsym --release $mod+space exec --no-startup-id wmfocus -f "Droid Sans":200 --chars 1234567890
-bindsym --release $mod+Tab exec --no-startup-id wmfocus -f "Droid Sans":400 --chars qwertyuiop
+#bindsym --release $mod+Tab exec --no-startup-id wmfocus -f "Droid Sans":400 --chars qwertyuiop
 
 # class                 border  backgr. text    indicator child_border
 #client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
@@ -186,8 +185,8 @@ client.background       #ffffff
 
 # Bluetooth
 # Pair PL_BBFIT and switch to HFP/HSP profile
-bindsym $mod+h exec --no-startup-id "bluetoothctl connect E4:22:A5:96:17:6C && pactl set-card-profile bluez_card.E4_22_A5_96_17_6C headset_head_unit"
+#bindsym $mod+h exec --no-startup-id "bluetoothctl connect E4:22:A5:96:17:6C && pactl set-card-profile #bluez_card.E4_22_A5_96_17_6C headset_head_unit"
 # Pair PL_BBFIT
 #bindsym $mod+h exec --no-startup-id bluetoothctl connect E4:22:A5:96:17:6C
 
-exec_always --no-startup-id a11y-dbus-running.sh
+#exec_always --no-startup-id a11y-dbus-running.sh
