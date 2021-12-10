@@ -132,7 +132,7 @@ bindsym Ctrl+$mod+Mod1+l exec --no-startup-id "xset dpms force off && dbus-send 
 # Suspend
 bindsym Ctrl+$mod+Mod1+s exec --no-startup-id "xset dpms force off && dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock && sleep 2 && systemctl suspend -i"
 # Restart
-bindsym Ctrl+$mod+Mod1+r exec --no-startup-id "dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.RequestReboot"
+bindsym Ctrl+$mod+Mod1+r exec --no-startup-id "dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Reboot"
 # Shutdown
 bindsym Ctrl+$mod+Mod1+q exec --no-startup-id "dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Shutdown"
 # Notifications
