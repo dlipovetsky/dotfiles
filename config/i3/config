@@ -119,6 +119,17 @@ bindsym $mod+plus fullscreen toggle
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+# Compositor
+exec_always --no-startup-id picom \
+	--experimental-backends \
+	--backend glx \
+	# --xrender-sync-fence \
+	--use-ewmh-active-win \
+	--mark-ovredir-focused \
+	# --vsync \
+	--glx-no-stencil \
+	--glx-no-rebind-pixmap \
+
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
