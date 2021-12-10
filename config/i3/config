@@ -34,6 +34,9 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 
+# When moving focus, stay within the container
+focus_wrapping no
+
 # Move window
 bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+Left move left
