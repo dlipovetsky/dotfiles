@@ -9,6 +9,9 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+workspace "primary" output DP-0
+workspace "secondary" output HDMI-0
+
 # Map $mod to Mod4, aka Super_L
 set $mod Mod4
 
