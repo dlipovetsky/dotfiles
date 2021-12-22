@@ -2,6 +2,7 @@
 	path = "~/.gitconfig.personal"
 	path = "~/.gitconfig.d2iq"
 [init]
+	defaultBranch = main
 [rebase]
 	autosquash = true
 	autostash = true
@@ -10,9 +11,12 @@
 [diff]
 	wsErrorHighlight = all
 	colorMoved = zebra
+	algorithm = histogram
 [push]
 	default = current
 [url "https://github.com/"]
 	insteadOf = git@github.com:
 [core]
 	editor = vim
+[pull]
+	ff = only
