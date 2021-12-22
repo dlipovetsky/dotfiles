@@ -44,13 +44,15 @@ export PATH=""
 prependpath "/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin"
 
 # Go
-export GO_VERSION="1.15.5"
-export GOPATH="$HOME/go"
-export GOBIN="$GOPATH/bin"
-export GOROOT="$GOPATH/$GO_VERSION"
+#prependpath "$HOME/.local/go/bin"
+prependpath "$HOME/go/bin"
 
-prependpath "$GOBIN"
-prependpath "$GOROOT/bin"
+#export GO_VERSION="1.15.5"
+#export GOPATH="$HOME/go"
+#export GOBIN="$GOPATH/bin"
+#export GOROOT="$GOPATH/$GO_VERSION"
+#prependpath "$GOBIN"
+#prependpath "$GOROOT/bin"
 
 # Rust
 prependpath "$HOME/.cargo/bin"
