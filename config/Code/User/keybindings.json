@@ -46,4 +46,72 @@
         "key": "shift+alt+g",
         "command": "ginkgotools.GotoSymbolInEditor"
     },
+    {
+        "key": "ctrl+b",
+        "command": "-md-shortcut.toggleBold",
+        "when": "editorTextFocus && markdownShortcuts:enabled"
+    },
+    {
+        "key": "ctrl+m ctrl+b",
+        "command": "-md-shortcut.toggleBullets",
+        "when": "editorTextFocus && markdownShortcuts:enabled"
+    },
+    {
+        "key": "ctrl+m ctrl+x",
+        "command": "-md-shortcut.toggleCheckboxes",
+        "when": "editorTextFocus && markdownShortcuts:enabled"
+    },
+    {
+        "key": "ctrl+m ctrl+c",
+        "command": "-md-shortcut.toggleCodeBlock",
+        "when": "editorTextFocus && markdownShortcuts:enabled"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "-md-shortcut.toggleLink",
+        "when": "editorTextFocus && markdownShortcuts:enabled"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "-md-shortcut.toggleImage",
+        "when": "editorTextFocus && markdownShortcuts:enabled"
+    },
+    {
+        "key": "ctrl+m ctrl+i",
+        "command": "-md-shortcut.toggleInlineCode",
+        "when": "editorTextFocus && markdownShortcuts:enabled"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-md-shortcut.toggleItalic",
+        "when": "editorTextFocus && markdownShortcuts:enabled"
+    },
+    {
+        "key": "ctrl+m ctrl+1",
+        "command": "-md-shortcut.toggleNumbers",
+        "when": "editorTextFocus && markdownShortcuts:enabled"
+    },
+    {
+        "key": "ctrl+m ctrl+m",
+        "command": "-md-shortcut.showCommandPalette",
+        "when": "editorTextFocus && markdownShortcuts:enabled"
+    },
+    {
+        "key": "tab",
+        "command": "-editor.emmet.action.expandAbbreviation",
+        "when": "config.emmet.triggerExpansionOnTab && editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+    },
+    {
+        "key": "enter",
+        "command": "-acceptSelectedSuggestion",
+        "when": "acceptSuggestionOnEnter && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
+    },
+    {
+        "key": "ctrl+alt+,",
+        "command": "workbench.action.openSettingsJson"
+    },
+    {
+        "key": "ctrl+f11",
+        "command": "editor.action.goToTypeDefinition"
+    }
 ]

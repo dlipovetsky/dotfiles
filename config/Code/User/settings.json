@@ -3,29 +3,52 @@
         "editor.codeActionsOnSave": {
             "source.organizeImports": true
         },
-        "editor.formatOnSave": true,
+        "editor.formatOnSave": true
     },
     "breadcrumbs.enabled": true,
+    "cSpell.allowCompoundWords": true,
     "cSpell.userWords": [
         "Distro",
+        "capi",
         "centos",
         "clusterctl",
         "containerd",
         "etcd",
+        "kommander",
         "konvoy",
         "kubeadm",
+        "kubebuilder",
         "kubernetes",
+        "mate",
         "toolchain",
         "xenial"
     ],
     "debug.console.fontSize": 12,
+    "diffEditor.renderSideBySide": false,
+    "editor.bracketPairColorization.enabled": true,
     "editor.columnSelection": false,
-    "editor.fontSize": 12,
-    "editor.lineHeight": 20,
+    "editor.fontFamily": "'JetBrains Mono', 'Fira Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": false,
+    "editor.fontSize": 11,
+    "editor.guides.bracketPairs": true,
+    "editor.lineHeight": 1.7,
     "editor.minimap.enabled": false,
     "editor.mouseWheelScrollSensitivity": 1.8,
     "editor.renderControlCharacters": true,
     "editor.renderWhitespace": "all",
+    "editor.rulers": [
+        {
+            "column": 140
+        }
+    ],
+    "editor.stickyTabStops": true,
+    "editor.suggest.showStatusBar": true,
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 120,
+    "errorLens.fontStyleItalic": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.lintTask.enable": true,
+    "eslint.run": "onSave",
     "explorer.autoReveal": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -44,14 +67,21 @@
     "files.watcherExclude": {
         "**/.history/**": true
     },
+    "git-graph.repository.commits.showSignatureStatus": true,
+    "git-graph.repository.sign.commits": true,
+    "git-graph.repository.sign.tags": true,
     "git.allowForcePush": true,
     "git.alwaysSignOff": true,
     "git.autofetch": true,
     "git.confirmSync": false,
+    "git.enableCommitSigning": true,
+    "git.pullTags": false,
     "git.untrackedChanges": "separate",
+    "githubPullRequests.fileListLayout": "flat",
     "githubPullRequests.remotes": [
-        "mesosphere",
-        "dlipovetsky"
+        "origin",
+        "dlipovetsky",
+        "mesosphere"
     ],
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
@@ -59,36 +89,44 @@
         "suppressFileNotUnderSourceControlWarning": false,
         "suppressGitVersionWarning": false,
         "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
+        "suppressNoRepositoryWarning": false
     },
     "gitlens.codeLens.recentChange.enabled": false,
     "gitlens.keymap": "alternate",
     "gitlens.views.repositories.files.layout": "list",
     "go.autocompleteUnimportedPackages": true,
     "go.buildOnSave": "off",
-    "go.formatTool": "goimports",
     "go.installDependenciesWhenBuilding": false,
-    "go.lintTool": "golangci-lint",
     "go.lintOnSave": "file",
+    "go.lintTool": "golangci-lint",
     "go.testEnvVars": {
         "GINKGO_LIST": "true"
     },
     "go.useLanguageServer": true,
     "gopls": {
-        "build.experimentalWorkspaceModule": true,
+        // "build.experimentalWorkspaceModule": true,
         // "build.expandWorkspaceToModule": true,
+        "build.allowImplicitNetworkAccess": true,
         "build.experimentalPackageCacheKey": true,
-        "ui.diagnostic.staticcheck": false,
+        "build.experimentalUseInvalidMetadata": true,
+        "formatting.gofumpt": true,
+        "formatting.local": "github.com/mesosphere",
         "ui.completion.usePlaceholders": true,
+        // "ui.diagnostic.staticcheck": false,
+        "ui.navigation.importShortcut": "Definition",
+        "verboseOutput": true
     },
     "markdown-toc.depthFrom": 2,
+    // workaround for right-click context menu selection made unexpectedly (https://github.com/microsoft/vscode/issues/113175)
+    "markdown-toc.updateOnSave": false,
     "markdown.extension.orderedList.autoRenumber": false,
     "markdown.extension.showExplorer": true,
     "markdown.extension.toc.githubCompatibility": true,
     "markdown.extension.toc.levels": "2..6",
     "markdown.preview.breaks": true,
     "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
-    "markdown.preview.fontSize": 15,
+    "markdown.preview.fontSize": 12.5,
+    "markdown.preview.lineHeight": 1.5,
     "markdown.preview.openMarkdownLinks": "inEditor",
     "markdownlint.config": {
         "MD004": {
@@ -96,12 +134,33 @@
         },
         "MD007": {
             "indent": 4
+        },
+        "MD024": {
+            "allow_different_nesting": true
+        },
+        "MD030": {
+            "ol_multi": 2,
+            "ul_multi": 2
+        },
+        "MD033": {
+            "allowed_elements": [
+                "code",
+                "p",
+                "strong"
+            ]
+        },
+        "MD046": {
+            "style": "consistent"
         }
     },
+    "markdownlint.ignore": [
+        ".vscode/notes.md"
+    ],
     "markdownlint.run": "onSave",
     "plantuml.render": "PlantUMLServer",
-    "plantuml.server": "http://localhost:9080",
+    "plantuml.server": "http://localhost:50080",
     "quickNotes.fileName": "./.vscode/notes.md",
+    "redhat.telemetry.enabled": false,
     "rewrap.wrappingColumn": 80,
     "search.enableSearchEditorPreview": true,
     "search.exclude": {
@@ -110,14 +169,14 @@
         "**/node_modules": true
     },
     "search.showLineNumbers": true,
+    "security.workspace.trust.untrustedFiles": "open",
     "shebang.associations": [
         {
             "language": "shellscript",
             "pattern": "^#!.*bash$"
         }
     ],
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
+    "telemetry.telemetryLevel": "crash",
     "terminal.integrated.fontSize": 12,
     "terraform.indexing": {
         "delay": 500,
@@ -129,13 +188,24 @@
         "liveIndexing": false
     },
     "todo-tree.filtering.useBuiltInExcludes": "file excludes",
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "todo-tree.tree.showScanModeButton": false,
+    "typescript.implementationsCodeLens.enabled": true,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "vim.easymotion": true,
     "vim.easymotionMarkerBackgroundColor": "white",
-    "vim.easymotionMarkerFontWeight": "regular",
-    "vim.easymotionMarkerForegroundColorOneChar": "red",
-    "vim.easymotionMarkerForegroundColorTwoCharFirst": "red",
+    "vim.easymotionMarkerForegroundColorOneChar": "black",
+    "vim.easymotionMarkerForegroundColorTwoCharFirst": "black",
+    "vim.easymotionMarkerForegroundColorTwoCharSecond": "black",
     "vim.handleKeys": {
         "<C-v>": true
     },
@@ -154,6 +224,7 @@
     ],
     "vim.overrideCopy": true,
     "vim.sneak": true,
+    "vim.textwidth": 120,
     "vim.useCtrlKeys": false,
     "vim.useSystemClipboard": true,
     "vim.visualModeKeyBindingsNonRecursive": [
@@ -180,22 +251,26 @@
             ]
         }
     ],
-    "window.zoomLevel": 2,
-    "workbench.colorTheme": "Github Light Theme",
+    "window.autoDetectColorScheme": true,
+    "window.title": "${dirty}${activeEditorLong}${separator}${appName}",
+    "window.zoomLevel": 3,
+    "workbench.colorTheme": "Light High Contrast Theme",
     "workbench.editor.enablePreview": true,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.showTabs": true,
+    "workbench.editor.splitInGroupLayout": "vertical",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "workbench.panel.defaultLocation": "right",
-    "workbench.sideBar.location": "left",
-    "zenMode.centerLayout": false,
-    "zenMode.hideLineNumbers": false,
-    "typescript.implementationsCodeLens.enabled": true,
-    "eslint.lintTask.enable": true,
-    "eslint.run": "onSave",
-    "eslint.alwaysShowStatus": true,
-    "terminal.integrated.shell.linux": "/bin/bash",
-    "editor.wordWrap": "on",
+    "workbench.preferredDarkColorTheme": "Default High Contrast",
+    "workbench.preferredLightColorTheme": "Light High Contrast Theme",
+    // do not show welcome page on startup
+    "workbench.startupEditor": "none",
     "workspaceSidebar.folder": "/home/dlipovetsky/projects",
-    "window.titleBarStyle": "custom",
-    "diffEditor.renderSideBySide": false // workaround for right-click context menu selection made unexpectedly (https://github.com/microsoft/vscode/issues/113175)
+    // Disabled globally, until it is possible to disable for certain files (https://github.com/redhat-developer/vscode-yaml/issues/245)
+    "yaml.schemaStore.enable": false,
+    "yaml.validate": false,
+    "zenMode.centerLayout": false,
+    "zenMode.hideLineNumbers": false
 }
