@@ -17,6 +17,13 @@ export LC_TIME="en_GB.UTF-8"
 # > called. -- https://blog.packagecloud.io/eng/2017/02/21/set-environment-variable-save-thousands-of-system-calls/
 export TZ=":/etc/localtime"
 
+# Editor
+if type vim &> /dev/null; then
+	EDITOR=vim
+elif type vi &> /dev/null; then
+	EDITOR=vi
+fi
+
 # Prompt
 function parse_git_branch()
 {
