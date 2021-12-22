@@ -62,11 +62,13 @@ prependpath "$HOME/.local/bin"
 prependpath "/usr/local/bin"
 
 # kubebuilder
-ln --force --symbol "$HOME/.local/kubebuilder/bin/kubebuilder" "$HOME/.local/bin/kubebuilder"
-# Expose kubebuilder in path, but hide the etcd, kube-apiserver, and kubectl
-# binaries to avoid conflict
-export KUBEBUILDER_ASSETS="$HOME/.local/kubebuilder/bin"
 alias kb=kubebuilder
+# kubebuilder autocompletion
+if [ ! -f ~/.local/share/kubebuilder-bash-completion ]; then
+	mkdir -p ~/.local/share
+	kubebuilder completion bash > ~/.local/share/kubebuilder-bash-completion
+fi
+. ~/.local/share/kubebuilder-bash-completion
 
 # krew
 export KREW_ROOT=$HOME/.krew
