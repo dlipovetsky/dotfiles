@@ -11,13 +11,11 @@ def handle_result(args: List[str], answer: str, target_window_id: int, boss: Bos
     result = ""
     for t in boss.all_tabs:
         result += tab_to_session_syntax(t)
-    
-    if len(args) == 2:
-        output_filename = args[1]
-        with open(output_filename, "w") as output_file:
-            output_file.write(result)
-            return
-    return result
+    if len(args) < 2:
+        return result
+    output_filename = args[1]
+    with open(output_filename, "w") as output_file:
+        output_file.write(result)
 
 def tab_to_session_syntax(t: Tab) -> str:
     result = f"# tab: {t.name}\n"

@@ -112,15 +112,17 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id picom \
 	--experimental-backends \
 	--backend glx \
-	# --xrender-sync-fence \
-	--use-ewmh-active-win \
-	--mark-ovredir-focused \
+	--xrender-sync-fence \
+	# --use-ewmh-active-win \
+	# --mark-ovredir-focused \
+	# --glx-no-stencil \
+	# --glx-no-rebind-pixmap \
+        # --backend xr_glx_hybrid \
 	# --vsync \
-	--glx-no-stencil \
-	--glx-no-rebind-pixmap \
 
 # Show the first scratchpad window
-bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+backslash move scratchpad
+bindsym $mod+backslash scratchpad show
 
 # GNOME Flashback
 exec --no-startup-id gnome-flashback
@@ -152,7 +154,8 @@ bindsym $mod+b [class=$browser] focus
 # Terminal
 # Start
 set $terminal kitty
-set $terminal_path $HOME/Downloads/kitty-nightly-x86_64/bin
+#set $terminal_path $HOME/Downloads/kitty-nightly-x86_64/bin
+set $terminal_path $HOME/.local/kitty.app/bin
 set $terminal_args --session $HOME/.config/kitty/sessions/default.conf --detach --single-instance
 # Quick Focus
 bindsym $mod+Shift+t exec $terminal_path/$terminal $terminal_args
@@ -207,3 +210,9 @@ for_window [class="com-pavelfatin-typometer-Application"] floating enable
 
 # Background
 exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/fedora-workstation/aurora-over-iceland.png
+
+# EasyEffects
+# Note: We want to load the `nonoise` input preset, and the `perfect-eq` output preset, but easyeffects exits with an error code, but no explanation.
+#exec --no-startup-id easyeffects --gapplication-service --load-preset nonoise
+# Note: This will fail if easyeffects is already running, but i3 won't complain.
+exec_always --no-startup-id flatpak run com.github.wwmm.easyeffects --gapplication-service

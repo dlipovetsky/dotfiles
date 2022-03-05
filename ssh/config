@@ -1,0 +1,10 @@
+Host localhost
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+
+Host 127.0.0.1
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+
+Host *
+    StrictHostKeyChecking accept-new

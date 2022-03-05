@@ -1,11 +1,27 @@
 .include /etc/pulse/default.pa
 
-# use different heuristics to switch bluetooth profiles
-# broken with fedora 31 + kde plasmashell (keeps switching back and forth)
-#.nofail
-#unload-module module-bluetooth-policy
-#load-module module-bluetooth-policy auto_switch=2
-#.fail
-
 # automatically switch to newly-connected devices
 load-module module-switch-on-connect
+
+# The 1 and 7 below are device major and minor index, respectively.
+#
+# The device MAJOR index can change. Usually, the motherboard audio gets 0, but not always.
+# Here's an example of the NVidia audio getting 0:
+# $ cat /proc/asound/cards
+#  0 [NVidia         ]: HDA-Intel - HDA NVidia
+#                       HDA NVidia at 0xfc080000 irq 132
+#  1 [Generic        ]: HDA-Intel - HD-Audio Generic
+#                       HD-Audio Generic at 0xfc800000 irq 134
+#  2 [C920           ]: USB-Audio - HD Pro Webcam C920
+#                       HD Pro Webcam C920 at usb-0000:09:00.3-4, high speed
+#
+# The device MINOR index... I don't know if this changes.
+# load-module module-alsa-sink device=hw:0,7
+# set-default-sink alsa_output.hw_0_7
+
+# Alternative approach.
+# We know the name of the HDMI card sink... maybe. It might change across reboots.
+# We know that the port should be "hdmi-output-1," because we verified that by testing the monitor
+# speakers.
+#set-sink-port alsa_output.pci-0000_07_00.1.hdmi-stereo-extra1 hdmi-output-1
+#set-default-sink alsa_output.pci-0000_07_00.1.hdmi-stereo-extra1

@@ -100,21 +100,25 @@
     "go.lintOnSave": "file",
     "go.lintTool": "golangci-lint",
     "go.testEnvVars": {
-        "GINKGO_LIST": "true"
+        "ACK_GINKGO_DEPRECATIONS": "1.16.5",
     },
+    "go.testFlags": [
+        // Force go to skip the build cache for tests, see https://stackoverflow.com/a/48882892
+        "-count=1"
+    ],
     "go.useLanguageServer": true,
     "gopls": {
         // "build.experimentalWorkspaceModule": true,
-        // "build.expandWorkspaceToModule": true,
+        "build.expandWorkspaceToModule": true,
         "build.allowImplicitNetworkAccess": true,
         "build.experimentalPackageCacheKey": true,
         "build.experimentalUseInvalidMetadata": true,
         "formatting.gofumpt": true,
         "formatting.local": "github.com/mesosphere",
-        "ui.completion.usePlaceholders": true,
+        "ui.completion.usePlaceholders": false,
         // "ui.diagnostic.staticcheck": false,
         "ui.navigation.importShortcut": "Definition",
-        "verboseOutput": true
+        "verboseOutput": true,
     },
     "markdown-toc.depthFrom": 2,
     // workaround for right-click context menu selection made unexpectedly (https://github.com/microsoft/vscode/issues/113175)
@@ -134,6 +138,9 @@
         },
         "MD007": {
             "indent": 4
+        },
+        "MD010": {
+            "code_blocks": false,
         },
         "MD024": {
             "allow_different_nesting": true
@@ -262,7 +269,6 @@
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb"
     },
-    "workbench.panel.defaultLocation": "right",
     "workbench.preferredDarkColorTheme": "Default High Contrast",
     "workbench.preferredLightColorTheme": "Light High Contrast Theme",
     // do not show welcome page on startup
@@ -272,5 +278,6 @@
     "yaml.schemaStore.enable": false,
     "yaml.validate": false,
     "zenMode.centerLayout": false,
-    "zenMode.hideLineNumbers": false
+    "zenMode.hideLineNumbers": false,
+    "terminal.integrated.scrollback": 2000,
 }

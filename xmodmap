@@ -16,3 +16,8 @@
 ! Swap Super_R and Alt_R
 
 ! Swap Alt_R and Print Screen
+
+
+! Map Alt_R to mod3 (make it an alias for Super_L)
+!remove mod1 = Alt_R
+!add mod3 = Alt_R

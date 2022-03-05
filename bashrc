@@ -157,3 +157,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # Complete all aliases
 [ "$(type -t _complete_alias)" == "function" ] && complete -F _complete_alias $( alias | perl -lne 'print "$1" if /^alias ([^=]*)=/' )
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/dlipovetsky/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/home/dlipovetsky/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/dlipovetsky/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/home/dlipovetsky/Downloads/google-cloud-sdk/completion.bash.inc'; fi
