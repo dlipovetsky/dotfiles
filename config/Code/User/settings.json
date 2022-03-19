@@ -114,7 +114,6 @@
         "build.experimentalPackageCacheKey": true,
         "build.experimentalUseInvalidMetadata": true,
         "formatting.gofumpt": true,
-        "formatting.local": "github.com/mesosphere",
         "ui.completion.usePlaceholders": false,
         // "ui.diagnostic.staticcheck": false,
         "ui.navigation.importShortcut": "Definition",
