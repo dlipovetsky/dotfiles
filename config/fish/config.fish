@@ -7,10 +7,14 @@ if status is-interactive
     end
 
     # zoxide
-    zoxide init fish | source
+    if test (command -v zoxide)
+        zoxide init fish | source
+    end
 
     # kubectl
-    kubectl completion fish | source
+    if test (command -v kubectl)
+        kubectl completion fish | source
+    end
 end
 
 # krew

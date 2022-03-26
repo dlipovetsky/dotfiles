@@ -1,5 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export GOBIN:/home/dlipovetsky/\x2elocal/go/bin
+SETUVAR --export GOMODCACHE:/home/dlipovetsky/\x2elocal/go/pkg/mod/
+SETUVAR --export --path GOPATH:/home/dlipovetsky/\x2elocal/go
 SETUVAR Z_DATA_DIR:/home/dlipovetsky/\x2elocal/share/z
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_df:df\x20\x2dTh
@@ -17,15 +20,17 @@ SETUVAR _fish_abbr_gre:git\x20restore
 SETUVAR _fish_abbr_grm:git\x20rm
 SETUVAR _fish_abbr_gst:git\x20status
 SETUVAR _fish_abbr_k:kubectl
-SETUVAR _fish_abbr_konvoy:/home/dlipovetsky/projects/konvoy2/dist/konvoy_linux_amd64/konvoy
+SETUVAR _fish_abbr_konvoy:/home/dlipovetsky/code/konvoy2/dist/konvoy_linux_amd64/konvoy
 SETUVAR _fish_abbr_konvoy1:/home/dlipovetsky/Downloads/konvoy_v1\x2e8\x2e3/konvoy
 SETUVAR _fish_abbr_rm:trash
 SETUVAR _fish_abbr_ssh:kitty\x20\x2bkitten\x20ssh
 SETUVAR _fish_abbr_xo:xdg\x2dopen
-SETUVAR _fisher_PatrickF1_2F_fzf_2E_fish_files:/home/dlipovetsky/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
+SETUVAR _fisher_PatrickF1_2F_fzf_2E_fish_files:/home/dlipovetsky/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_search_processes\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/dlipovetsky/\x2econfig/fish/functions/fisher\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_hydro_files:/home/dlipovetsky/\x2econfig/fish/functions/fish_mode_prompt\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/fish_prompt\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/functions/fish_title\x2efish\x1e/home/dlipovetsky/\x2econfig/fish/conf\x2ed/hydro\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ePatrickF1/fzf\x2efish\x1ejorgebucaran/hydro
+SETUVAR _fisher_plugins:PatrickF1/fzf\x2efish\x1ejorgebucaran/hydro\x1ejorgebucaran/fisher
+SETUVAR _hydro_git_128444:main\u2022\x20
+SETUVAR _hydro_git_202441:dlipovetsky/get\x2dkubeconfig\u2022\x20
 SETUVAR _hydro_git_3978:main\u2022\x20
 SETUVAR _hydro_git_3979:main\u2022\x20
 SETUVAR _hydro_git_3982:main\u2022\x20\u219313\x20
@@ -43,8 +48,17 @@ SETUVAR _hydro_git_4381:master\x20
 SETUVAR _hydro_git_4420:main\u2022\x20
 SETUVAR _hydro_git_4515:master\x20
 SETUVAR _hydro_git_4532:dlipovetsky/fix\x2ddiagnostic\x2dbundle\x2dpaths\u2022\x20
+SETUVAR _hydro_git_608829:main\u2022\x20
 SETUVAR _hydro_git_7376:master\u2022\x20
+SETUVAR _hydro_git_759383:dlipovetsky/konvoy\x2d2\x2e2\x2dupdate\x2dstrategy\x2drelease\x2dnote\x20
+SETUVAR _hydro_git_769402:release\x2d1\x2e3\x2dd2iq\x20
+SETUVAR _hydro_git_772756:release\x2d1\x2e3\x2dd2iq\x20
 SETUVAR _hydro_git_80136:dlipovetsky/socks5\x2dfor\x2dtest\u2022\x20
+SETUVAR _hydro_git_8130:v3\x2e0\x2e2\u2022\x20
+SETUVAR _hydro_git_8132:main\u2022\x20
+SETUVAR _hydro_git_820573:dlipovetsky/konvoy\x2d2\x2e2\x2dupdate\x2dstrategy\x2drelease\x2dnote\x20
+SETUVAR _hydro_git_82257:v3\x2e0\x2e2\u2022\x20
+SETUVAR _hydro_git_8321:master\u2022\x20\u21915\x20
 SETUVAR _hydro_git_8552:dlipovetsky/optional\x2dcontainerd\x2dregistry\x2dconfig\x2dfields\u2022\x20
 SETUVAR _hydro_git_8658:main\x20
 SETUVAR _hydro_git_8670:main\x20
@@ -81,7 +95,7 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_prompt_pwd_dir_length:10
-SETUVAR fish_user_paths:/home/dlipovetsky/\x2ekrew/bin
+SETUVAR fish_user_paths:/home/dlipovetsky/\x2elocal/bin\x1e/home/dlipovetsky/\x2elocal/go/bin\x1e/home/dlipovetsky/\x2elocal/go/1\x2e18/bin\x1e/home/dlipovetsky/\x2ekrew/bin
 SETUVAR fzf_preview_file_cmd:bat\x20\x2d\x2dtheme\x3dansi
 SETUVAR hydro_color_error:\x23dc143c
 SETUVAR hydro_color_git:\x23008080
