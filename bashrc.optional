@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+# Prompt
+function parse_git_branch()
+{
+    if command -v git; then
+        git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'
+    fi
+}
+PS1="\u@\[\e[33m\]\h :: \[\e[1;34m\]\A :: \[\e[m\]\[\e[1;32m\]\w ::\[\e[m\]\[\e[0;35m\]\`parse_git_branch\`\[\e[00m\] \n$ "
+
+# Go
+export GOPATH="$HOME/.local/go"
+export GOMODCACHE="$HOME/.local/go/pkg/mod"
+export GOBIN="$HOME/.local/go/bin"
+prependpath "$GOBIN"
+
+# Rust
+prependpath "$HOME/.cargo/bin"
+
+# Krew
+export KREW_ROOT=$HOME/.krew
+prependpath "$KREW_ROOT/bin"
+
+# kubebuilder
+alias kb=kubebuilder
+# kubebuilder autocompletion
+if [ ! -f ~/.local/share/kubebuilder-bash-completion ]; then
+	mkdir -p ~/.local/share
+	kubebuilder completion bash > ~/.local/share/kubebuilder-bash-completion
+fi
+. ~/.local/share/kubebuilder-bash-completion
+
+# Enable color for `ls`
+export CLICOLOR=1
+
+# Aliases
+alias ls="ls --color=auto"
+alias vi=vim
+alias ag="ag --pager 'less -RFX'"
+alias ll="ls -lha"
+alias xo="xdg-open"
+
+# ripgrep
+lg()
+{
+	/usr/bin/rg -p "$@" | less -RFX
+}
+
+# Trash
+alias rm="trash"
+
+# Kubernetes
+if command -v kubectl; then
+    alias k=kubectl
+    [ -f $HOME/.kube/completion.bash.inc ] && source $HOME/.kube/completion.bash.inc
+fi
+
+# n (npm version manager)
+export N_PREFIX=$HOME/.local
+
+# fd
+[ -f $HOME/.fd.bash ] && source $HOME/.fd.bash
+
+# fzf
+# keybindings when installed from dnf
+[ -f /usr/share/fzf/shell/key-bindings.bash ] && source /usr/share/fzf/shell/key-bindings.bash
+# keybindings when installed from source
+[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
+
+FZF_DEFAULT_COMMAND="fd --type file --color=always --hidden --follow --absolute-path --exclude .git"
+FZF_ALT_C_COMMAND="fd --type directory --color=always --exclude .git"
+FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+FZF_DEFAULT_OPTS="--ansi"
+FZF_CTRL_R_OPTS=""
