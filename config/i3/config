@@ -17,13 +17,17 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 14
+#font pango:monospace 14
+font pango:JetBrains Mono 14
 
 # Default workspace layout
 workspace_layout tabbed
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# Force all windows, including GNOME applications like Settings, to have a border and title bar, even when floating.
+for_window [class=".*"] border normal 1
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -153,13 +157,12 @@ bindsym $mod+b [class=$browser] focus
 
 # Terminal
 # Start
-set $terminal kitty
-#set $terminal_path $HOME/Downloads/kitty-nightly-x86_64/bin
-set $terminal_path $HOME/.local/kitty.app/bin
+set $terminal_name kitty
+set $terminal_path /usr/bin/kitty
 set $terminal_args --session $HOME/.config/kitty/sessions/default.conf --detach --single-instance
 # Quick Focus
-bindsym $mod+Shift+t exec $terminal_path/$terminal $terminal_args
-bindsym $mod+t [class=$terminal] focus
+bindsym $mod+Shift+t exec $terminal_path $terminal_args
+bindsym $mod+t [class=$terminal_name] focus
 
 # Zoom
 # Floating window for zoom modal dialogs
@@ -209,10 +212,15 @@ client.background       #ffffff
 for_window [class="com-pavelfatin-typometer-Application"] floating enable
 
 # Background
-exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/fedora-workstation/aurora-over-iceland.png
+#set $background_image /usr/share/backgrounds/fedora-workstation/aurora-over-iceland.png
+#set $background_image $HOME/Pictures/wallpapers/mountain_peaks-wallpaper-6480x1440.jpg
+set $background_image $HOME/Pictures/wallpapers/red_landscape-wallpaper-3440x1440.jpg
+exec_always --no-startup-id feh --no-fehbg --bg-fill $background_image
+
 
 # EasyEffects
-# Note: We want to load the `nonoise` input preset, and the `perfect-eq` output preset, but easyeffects exits with an error code, but no explanation.
-#exec --no-startup-id easyeffects --gapplication-service --load-preset nonoise
-# Note: This will fail if easyeffects is already running, but i3 won't complain.
-exec_always --no-startup-id flatpak run com.github.wwmm.easyeffects --gapplication-service
+# Command fails if easyeffects is already running. We could restart easyeffects, but choose not to, because restarting
+# easyeffects temporarily removes the sink and source used by other applications, e.g., zoom, and could interrupt or
+# even cause them to crash.
+#exec_always --no-startup-id flatpak run com.github.wwmm.easyeffects --gapplication-service
+exec_always --no-startup-id easyeffects --gapplication-service
