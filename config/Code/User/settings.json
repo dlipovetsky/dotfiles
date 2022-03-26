@@ -3,8 +3,10 @@
         "editor.codeActionsOnSave": {
             "source.organizeImports": true
         },
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
     },
+    "go.goroot": "/home/dlipovetsky/.local/go/1.18",
+    "go.gopath": "/home/dlipovetsky/.local/go",
     "breadcrumbs.enabled": true,
     "cSpell.allowCompoundWords": true,
     "cSpell.userWords": [
@@ -57,7 +59,8 @@
         "*.dockerfile": "dockerfile",
         "**/i3/config": "i3",
         "Dockerfile.*": "dockerfile",
-        "Tiltfile": "python"
+        "Tiltfile": "python",
+        "*.make": "makefile",
     },
     "files.autoSave": "off",
     "files.eol": "\n",
@@ -266,17 +269,19 @@
     "workbench.editor.showTabs": true,
     "workbench.editor.splitInGroupLayout": "vertical",
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
+        "*.ipynb": "jupyter.notebook.ipynb",
+        "git-rebase-todo": "gitlens.rebase"
     },
     "workbench.preferredDarkColorTheme": "Default High Contrast",
     "workbench.preferredLightColorTheme": "Light High Contrast Theme",
     // do not show welcome page on startup
     "workbench.startupEditor": "none",
-    "workspaceSidebar.folder": "/home/dlipovetsky/projects",
+    "workspaceSidebar.folder": "/home/dlipovetsky/workspaces",
     // Disabled globally, until it is possible to disable for certain files (https://github.com/redhat-developer/vscode-yaml/issues/245)
     "yaml.schemaStore.enable": false,
     "yaml.validate": false,
     "zenMode.centerLayout": false,
     "zenMode.hideLineNumbers": false,
     "terminal.integrated.scrollback": 2000,
+    "git-graph.commitDetailsView.location": "Docked to Bottom",
 }

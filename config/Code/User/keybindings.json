@@ -113,5 +113,9 @@
     {
         "key": "ctrl+f11",
         "command": "editor.action.goToTypeDefinition"
+    },
+    {
+        "key": "ctrl+shift+alt+f12",
+        "command": "references-view.findImplementations"
     }
 ]
