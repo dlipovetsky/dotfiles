@@ -31,6 +31,14 @@ if status is-interactive
         # krew
         # See https://krew.sigs.k8s.io/docs/user-guide/setup/install/
         fish_add_path -g $HOME/.krew/bin
+    end
 
+    if test (command -v fisher)
+        if test (fisher list pure-fish/pure)
+            _pure_set_default pure_show_system_time true
+            _pure_set_default pure_threshold_command_duration 0
+            _pure_set_default pure_show_subsecond_command_duration true
+            _pure_set_default pure_separate_prompt_on_error true
+        end
     end
 end
