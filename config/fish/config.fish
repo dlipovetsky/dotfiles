@@ -11,18 +11,19 @@ if status is-interactive
 
     # zoxide
     if test (command -v zoxide)
-        zoxide init --cmd cd fish | source
+        set zc "cd"
+        zoxide init --cmd $zc fish | source
 
         # zoxide + fzf
         if test (command -v fzf)
             set -gx _ZO_FZF_OPTS "--exact --no-sort --keep-right --height=40% --info=inline --layout=reverse --exit-0 --select-1 --bind=ctrl-z:ignore --preview='\command -p ls -p {2..}'"
 
             # Binding for fzf of z directory list; bound to Alt+Ctrl+/
-            bind \e\c_ "cdi; commandline -f repaint"
+            bind \e\c_ $zc"i"; commandline -f repaint
         end
     end
 
-    if test (command -v fzf)
+    if test (command -v kubectl)
         # kubectl
         if test (command -v kubectl)
             kubectl completion fish | source
