@@ -12,6 +12,9 @@ if status is-interactive
     # zoxide
     if test (command -v zoxide)
         zoxide init fish | source
+
+        # Binding for fzf of z directory list; bound to Alt+Ctrl+/
+        bind \e\c_ 'zi; commandline -f repaint'
     end
 
     # kubectl
