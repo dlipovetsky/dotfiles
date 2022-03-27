@@ -146,8 +146,10 @@ no_focus [window_type="notification"]
 
 # Rofi
 # Desktop Applications and Windows (use Shift+Right to switch)
-bindsym $mod+space exec  "rofi -modi drun,window -show drun"
+bindsym $mod+space exec  "rofi -modi drun,window -show drun -drun-match-fields name"
 bindsym $mod+Tab exec  "rofi -modi window -show window -matching fuzzy"
+# TODO Search globally, and open accepted selection in Files
+# fd . / | rofi -keep-right -dmenu -i -p FILES
 bindsym $mod+l exec  "bash ~/.config/i3/rofi-locate.sh"
 
 # Browser
