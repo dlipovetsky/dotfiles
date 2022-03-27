@@ -11,19 +11,26 @@ if status is-interactive
 
     # zoxide
     if test (command -v zoxide)
-        zoxide init fish | source
+        zoxide init --cmd cd fish | source
 
-        # Binding for fzf of z directory list; bound to Alt+Ctrl+/
-        bind \e\c_ 'zi; commandline -f repaint'
+        # zoxide + fzf
+        if test (command -v fzf)
+            set -gx _ZO_FZF_OPTS "--exact --no-sort --keep-right --height=40% --info=inline --layout=reverse --exit-0 --select-1 --bind=ctrl-z:ignore --preview='\command -p ls -p {2..}'"
+
+            # Binding for fzf of z directory list; bound to Alt+Ctrl+/
+            bind \e\c_ "cdi; commandline -f repaint"
+        end
     end
 
-    # kubectl
-    if test (command -v kubectl)
-        kubectl completion fish | source
+    if test (command -v fzf)
+        # kubectl
+        if test (command -v kubectl)
+            kubectl completion fish | source
+        end
+
+        # krew
+        # See https://krew.sigs.k8s.io/docs/user-guide/setup/install/
+        fish_add_path -g $HOME/.krew/bin
+
     end
-
-    # krew
-    # See https://krew.sigs.k8s.io/docs/user-guide/setup/install/
-    fish_add_path -g $HOME/.krew/bin
-
 end
