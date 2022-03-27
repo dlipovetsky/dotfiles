@@ -214,8 +214,9 @@ for_window [class="com-pavelfatin-typometer-Application"] floating enable
 # Background
 #set $background_image /usr/share/backgrounds/fedora-workstation/aurora-over-iceland.png
 #set $background_image $HOME/Pictures/wallpapers/mountain_peaks-wallpaper-6480x1440.jpg
-set $background_image $HOME/Pictures/wallpapers/red_landscape-wallpaper-3440x1440.jpg
-exec_always --no-startup-id feh --no-fehbg --bg-fill $background_image
+#set $background_image $HOME/Pictures/wallpapers/red_landscape-wallpaper-3440x1440.jpg
+set $background_image $HOME/Pictures/wallpapers/04124_shadesofnature_5760x1200.jpg
+exec_always --no-startup-id feh --no-xinerama --bg-fill $background_image
 
 
 # EasyEffects
