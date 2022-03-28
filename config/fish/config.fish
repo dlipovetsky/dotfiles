@@ -19,7 +19,7 @@ if status is-interactive
             set -gx _ZO_FZF_OPTS "--exact --no-sort --keep-right --height=40% --info=inline --layout=reverse --exit-0 --select-1 --bind=ctrl-z:ignore --preview='\command -p ls -p {2..}'"
 
             # Binding for fzf of z directory list; bound to Alt+Ctrl+/
-            bind \e\c_ $zc"i"; commandline -f repaint
+            bind \e\c_ '$zc"i"; commandline -f repaint'
         end
     end
 
