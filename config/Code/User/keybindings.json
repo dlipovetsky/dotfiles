@@ -117,5 +117,14 @@
     {
         "key": "ctrl+shift+alt+f12",
         "command": "references-view.findImplementations"
+    },
+    {
+        "key": "ctrl+shift+r",
+        "command": "-editor.action.refactor",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+r",
+        "command": "workbench.view.extension.references-view"
     }
 ]

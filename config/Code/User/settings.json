@@ -1,11 +1,11 @@
 {
     "[go]": {
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
+            "source.organizeImports": true,
         },
         "editor.formatOnSave": true,
     },
-    "go.goroot": "/home/dlipovetsky/.local/go/1.18",
+    "go.goroot": "/home/dlipovetsky/.local/go/1.18.3",
     "go.gopath": "/home/dlipovetsky/.local/go",
     "breadcrumbs.enabled": true,
     "cSpell.allowCompoundWords": true,
@@ -26,10 +26,9 @@
         "xenial"
     ],
     "debug.console.fontSize": 12,
-    "diffEditor.renderSideBySide": false,
     "editor.bracketPairColorization.enabled": true,
     "editor.columnSelection": false,
-    "editor.fontFamily": "'JetBrains Mono', 'Fira Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "'Cascadia Code Semilight', 'JetBrains Mono', 'Fira Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontLigatures": false,
     "editor.fontSize": 11,
     "editor.guides.bracketPairs": true,
@@ -45,8 +44,19 @@
     ],
     "editor.stickyTabStops": true,
     "editor.suggest.showStatusBar": true,
-    "editor.wordWrap": "on",
-    "editor.wordWrapColumn": 120,
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 140,
+    "[markdown]": {
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.unicodeHighlight.invisibleCharacters": false,
+        "editor.wordWrap": "bounded",
+        "editor.wordWrapColumn": 80,
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
+    },
     "errorLens.fontStyleItalic": true,
     "eslint.alwaysShowStatus": true,
     "eslint.lintTask.enable": true,
@@ -131,7 +141,6 @@
     "markdown.extension.toc.levels": "2..6",
     "markdown.preview.breaks": true,
     "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
-    "markdown.preview.fontSize": 12.5,
     "markdown.preview.lineHeight": 1.5,
     "markdown.preview.openMarkdownLinks": "inEditor",
     "markdownlint.config": {
@@ -263,7 +272,6 @@
     "window.autoDetectColorScheme": true,
     "window.title": "${dirty}${activeEditorLong}${separator}${appName}",
     "window.zoomLevel": 3,
-    "workbench.colorTheme": "Light High Contrast Theme",
     "workbench.editor.enablePreview": true,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.showTabs": true,
@@ -284,4 +292,115 @@
     "zenMode.hideLineNumbers": false,
     "terminal.integrated.scrollback": 2000,
     "git-graph.commitDetailsView.location": "Docked to Bottom",
+    "workbench.reduceMotion": "on",
+    "githubPullRequests.queries": [
+        {
+            "label": "Waiting For My Review",
+            "query": "is:open review-requested:${user}"
+        },
+        {
+            "label": "Assigned To Me",
+            "query": "is:open assignee:${user}"
+        },
+        {
+            "label": "Created By Me",
+            "query": "is:open author:${user}"
+        }
+    ],
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "markdown.preview.fontSize": 12.5,
+    "comments.openView": "never",
+    "markdown-preview-github-styles.colorTheme": "system",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "text.html.markdown.journal.task.open.bullet",
+                "settings": {
+                    "foreground": "#CC3300"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.task.open.marker",
+                "settings": {
+                    "foreground": "#CC3300"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.task.open.keyword",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.task.open.text",
+                "settings": {}
+            },
+            {
+                "scope": "text.html.markdown.journal.task.completed.keyword",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.task.completed.marker",
+                "settings": {
+                    "foreground": "#AAAAAA"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.task.completed.text",
+                "settings": {
+                    "foreground": "#AAAAAA"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.task.completed.bullet",
+                "settings": {
+                    "foreground": "#CC3300"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.memo.keyword",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.memo.bullet",
+                "settings": {
+                    "foreground": "#CC3300"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.scope",
+                "settings": {
+                    "foreground": "#CC3300"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.link.keyword",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "text.html.markdown.journal.link.bullet",
+                "settings": {
+                    "foreground": "#CC3300"
+                }
+            }
+        ]
+    },
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Light High Contrast Theme",
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.panel.defaultLocation": "right",
+    "go.testTimeout": "300s",
+    "shfmt.executablePath": "/home/dlipovetsky/.local/go/bin/shfmt",
+    "shellcheck.customArgs": [
+        "--external-sources"
+    ],
+    "[Log]": {
+        "editor.largeFileOptimizations": true
+    },
 }
