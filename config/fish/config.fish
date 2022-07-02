@@ -11,7 +11,7 @@ if status is-interactive
 
     # zoxide
     if test (command -v zoxide)
-        set zc "cd"
+        set zc cd
         zoxide init --cmd $zc fish | source
 
         # zoxide + fzf
