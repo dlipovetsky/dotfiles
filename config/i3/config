@@ -18,7 +18,8 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 14
-font pango:JetBrains Mono 14
+#font pango:JetBrains Mono 14
+font pango:Cascadia Code 14
 
 # Default workspace layout
 workspace_layout tabbed
@@ -39,7 +40,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 
 # When moving focus, stay within the container
-focus_wrapping no
+focus_wrapping workspace
 
 # Move window
 bindsym $mod+Shift+Right move right
@@ -166,15 +167,24 @@ set $terminal_args --session $HOME/.config/kitty/sessions/default.conf --detach 
 bindsym $mod+Shift+t exec $terminal_path $terminal_args
 bindsym $mod+t [class=$terminal_name] focus
 
+# Debug
+bindsym $mod+d shmlog toggle, debuglog toggle
+
 # Zoom
+# NOTE As of 5.11.0, the window class (and, sometimes, name) is a complex string that when the meeting is opened from the browser, e.g., "join?action=join&confno=97247274748&pwd=L2lXN0h2Y2dkS3FkeG9sdEh5ZitKdz09&confid=dXRpZD1VVElEXzUyMDBkZDk2NDY0YzRiNmJiZTZiMDVlMmZlMmUyNWMyJnVzcz0tek5xYWRHUkx4UGVoSjNzTHUwVWlOOE5ZOWVFcjVfekRlRnhGQ043NjB3MUVUazVuak5xb3RmSEU1dExKT05vZG9LYmJ4WWxhU2JYblFLMzNzMWV4SExDLjRnVGFvb2R4YjdBaVVMaGEmdGlkPTAyZWUzNTRhMjA1OTQzY2FhYWM1MTMwZGQyZjdjZWM1&browser=chrome"
 # Floating window for zoom modal dialogs
-for_window [class="zoom"] floating enable
+for_window [class="^(zoom|join\?action).*"] floating enable
 # Except "meeting" window
-for_window [class="zoom" title="Zoom Meeting"] floating disable
+for_window [class="^(zoom|join\?action).*" title="Zoom Meeting"] floating disable
 # Except "main" window
-for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
+for_window [class="^(zoom|join\?action).*" title="Zoom - Licensed Account"] floating disable
+# Do not steal focus
+no_focus [class="^(zoom|join\?action).*" title="zoom"]
 # Shortcut
-bindsym $mod+z [class="zoom"] focus
+bindsym $mod+z [class="^(zoom|join\?action).*" title="Zoom Meeting"] focus
+
+# Logitech C920 webcam field of view
+exec_always --no-startup-id v4l2-ctl -d /dev/video0 --set-ctrl zoom_absolute=140
 
 # System Monitor
 bindsym $mod+Shift+m exec gio launch /usr/share/applications/htop.desktop
@@ -215,9 +225,9 @@ for_window [class="com-pavelfatin-typometer-Application"] floating enable
 
 # Background
 #set $background_image /usr/share/backgrounds/fedora-workstation/aurora-over-iceland.png
-#set $background_image $HOME/Pictures/wallpapers/mountain_peaks-wallpaper-6480x1440.jpg
-#set $background_image $HOME/Pictures/wallpapers/red_landscape-wallpaper-3440x1440.jpg
-set $background_image $HOME/Pictures/wallpapers/04124_shadesofnature_5760x1200.jpg
+#set $background_image $HOME/Pictures/Wallpapers/mountain_peaks-wallpaper-6480x1440.jpg
+#set $background_image $HOME/Pictures/Wallpapers/red_landscape-wallpaper-3440x1440.jpg
+set $background_image $HOME/Pictures/Wallpapers/04124_shadesofnature_5760x1200.jpg
 exec_always --no-startup-id feh --no-xinerama --bg-fill $background_image
 
 
