@@ -23,23 +23,40 @@ if status is-interactive
         end
     end
 
+
+    # kubectl
     if test (command -v kubectl)
-        # kubectl
-        if test (command -v kubectl)
-            kubectl completion fish | source
-        end
+        kubectl completion fish | source
 
         # krew
         # See https://krew.sigs.k8s.io/docs/user-guide/setup/install/
         fish_add_path -g $HOME/.krew/bin
     end
 
+    # pure prompt
     if test (command -v fisher)
-        if test (fisher list pure-fish/pure)
-            _pure_set_default pure_show_system_time true
-            _pure_set_default pure_threshold_command_duration 0
-            _pure_set_default pure_show_subsecond_command_duration true
-            _pure_set_default pure_separate_prompt_on_error true
-        end
+        and test (fisher list pure-fish/pure)
+        _pure_set_default pure_show_system_time true
+        _pure_set_default pure_threshold_command_duration 0
+        _pure_set_default pure_show_subsecond_command_duration true
+        _pure_set_default pure_separate_prompt_on_error true
+    end
+
+    # select code workspaces
+    if test (command -v code)
+        and test (command -v fzf)
+
+        # Binding for fzf of code workspaces; bound to Alt+Ctrl+W
+        bind \e\cw 'select-code-workspace $HOME; commandline -f repaint'
+    end
+
+    # default terminal editor
+    if test (command -v vim)
+        set -x -g EDITOR vim
+    end
+
+    # flutter
+    if test -e /home/dlipovetsky/.local/flutter/bin/flutter
+        fish_add_path /home/dlipovetsky/.local/flutter/bin
     end
 end

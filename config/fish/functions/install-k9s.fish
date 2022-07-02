@@ -1,7 +1,7 @@
 function install-k9s \
     --argument-names k9s_version
 
-    if command -q k9s and test (k9s version -s | grep -oP 'v\d+\.\d+\.\d+') = $k9s_version
+    if command -q k9s; and test (k9s version -s | grep -oP 'v\d+\.\d+\.\d+') = $k9s_version
         echo "k9s version $k9s_version already installed."
         return
     end
