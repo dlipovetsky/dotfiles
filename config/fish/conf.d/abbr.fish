@@ -15,6 +15,5 @@ abbr --add -g -- gst 'git status'
 abbr --add -g -- df 'df -Th'
 abbr --add -g -- k kubectl
 abbr --add -g -- rm trash
-abbr --add -g -- ssh 'kitty +kitten ssh'
 abbr --add -g -- xo xdg-open
 
