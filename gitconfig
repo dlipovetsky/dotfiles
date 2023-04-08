@@ -11,6 +11,7 @@
 [diff]
 	wsErrorHighlight = all
 	colorMoved = zebra
+	colorMovedWS = ignore-space-change
 	algorithm = histogram
 [push]
 	default = current
@@ -21,7 +22,6 @@
 [pull]
 	ff = only
 [credential "https://github.com"]
-	helper =
 	helper = !/usr/bin/env gh auth git-credential
 [alias]
 	# http://ses4j.github.io/2020/04/01/git-alias-recent-branches/
