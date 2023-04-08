@@ -104,10 +104,13 @@ bindsym $mod+plus fullscreen toggle
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Compositor
+# Note: picom now starts through /etc/xdg/autostart/picom.desktop
 exec_always --no-startup-id picom \
-	--experimental-backends \
-	--backend glx \
-	--xrender-sync-fence \
+        --no-vsync
+# experimental-backends is the default as of v10, see https://github.com/yshui/picom/releases/tag/v10-rc1
+# 	--experimental-backends \
+# 	--backend glx \
+# 	--xrender-sync-fence \
 	# --use-ewmh-active-win \
 	# --mark-ovredir-focused \
 	# --glx-no-stencil \
