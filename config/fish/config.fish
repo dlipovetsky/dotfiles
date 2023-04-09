@@ -9,6 +9,20 @@ if status is-interactive
         complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
     end
 
+    # patrickf1/fzf.fish
+    if functions -q fzf_configure_bindings
+        fzf_configure_bindings --variables=\e\cv
+    end
+
+    # fd
+    if test (command -v fd)
+        set fzf_fd_opts \
+            --no-ignore \
+            --hidden \
+            --absolute-path \
+            --exclude=.git
+    end
+
     # zoxide
     if test (command -v zoxide)
         set zc cd
@@ -23,7 +37,6 @@ if status is-interactive
         end
     end
 
-
     # kubectl
     if test (command -v kubectl)
         kubectl completion fish | source
@@ -31,6 +44,11 @@ if status is-interactive
         # krew
         # See https://krew.sigs.k8s.io/docs/user-guide/setup/install/
         fish_add_path -g $HOME/.krew/bin
+    end
+
+    # kind
+    if test (command -v kind)
+        kind completion fish | source
     end
 
     # pure prompt
@@ -55,8 +73,25 @@ if status is-interactive
         set -x -g EDITOR vim
     end
 
-    # flutter
-    if test -e /home/dlipovetsky/.local/flutter/bin/flutter
-        fish_add_path /home/dlipovetsky/.local/flutter/bin
+    # asdf
+    if test -e ~/.asdf/asdf.fish 
+        source ~/.asdf/asdf.fish
     end
+
+    # virsh
+    # The default URI is qemu:///session, which nothing uses, apparently, except virsh.
+    # Which you discover when you run `virsh`, and nothing shows up.
+    # Also see https://blog.wikichoon.com/2016/01/qemusystem-vs-qemusession.html
+    if test (command -v virsh)
+        set -x -g VIRSH_DEFAULT_CONNECT_URI qemu:///system
+    end
+
+    # less (pager)
+    if test (command -v less)
+        set -x -g LESS \
+            --ignore-case \
+            --use-color \
+            --raw-control-chars
+    end
+
 end

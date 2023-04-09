@@ -8,7 +8,7 @@ function install-k9s \
 
     echo "Installing k9s version $k9s_version from GitHub"
 
-    curl -qL https://github.com/derailed/k9s/releases/download/$k9s_version/k9s_Linux_x86_64.tar.gz \
+    curl -qL https://github.com/derailed/k9s/releases/download/$k9s_version/k9s_Linux_amd64.tar.gz \
         | tar xz \
         --directory $HOME/.local/bin \
         k9s
