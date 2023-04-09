@@ -4,8 +4,9 @@
             "source.organizeImports": true,
         },
         "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "modificationsIfAvailable",
     },
-    "go.goroot": "/home/dlipovetsky/.local/go/1.18.3",
+    "go.goroot": "/home/dlipovetsky/.local/go/1.20.1",
     "go.gopath": "/home/dlipovetsky/.local/go",
     "breadcrumbs.enabled": true,
     "cSpell.allowCompoundWords": true,
@@ -27,7 +28,6 @@
     ],
     "debug.console.fontSize": 12,
     "editor.bracketPairColorization.enabled": true,
-    "editor.columnSelection": false,
     "editor.fontFamily": "'Cascadia Code Semilight', 'JetBrains Mono', 'Fira Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontLigatures": false,
     "editor.fontSize": 11,
@@ -35,7 +35,6 @@
     "editor.lineHeight": 1.7,
     "editor.minimap.enabled": false,
     "editor.mouseWheelScrollSensitivity": 1.8,
-    "editor.renderControlCharacters": true,
     "editor.renderWhitespace": "all",
     "editor.rulers": [
         {
@@ -71,8 +70,9 @@
         "Dockerfile.*": "dockerfile",
         "Tiltfile": "python",
         "*.make": "makefile",
+        "*.script": "shellscript"
     },
-    "files.autoSave": "off",
+    "files.autoSave": "afterDelay",
     "files.eol": "\n",
     "files.exclude": {
         "**/.history": true
@@ -90,12 +90,6 @@
     "git.enableCommitSigning": true,
     "git.pullTags": false,
     "git.untrackedChanges": "separate",
-    "githubPullRequests.fileListLayout": "flat",
-    "githubPullRequests.remotes": [
-        "origin",
-        "dlipovetsky",
-        "mesosphere"
-    ],
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -105,32 +99,38 @@
         "suppressNoRepositoryWarning": false
     },
     "gitlens.codeLens.recentChange.enabled": false,
-    "gitlens.keymap": "alternate",
     "gitlens.views.repositories.files.layout": "list",
     "go.autocompleteUnimportedPackages": true,
     "go.buildOnSave": "off",
     "go.installDependenciesWhenBuilding": false,
-    "go.lintOnSave": "file",
     "go.lintTool": "golangci-lint",
-    "go.testEnvVars": {
-        "ACK_GINKGO_DEPRECATIONS": "1.16.5",
-    },
+    // "go.testEnvVars": {
+    //     "ACK_GINKGO_DEPRECATIONS": "1.16.5",
+    //     "KUBEBUILDER_ASSETS": "/home/dlipovetsky/.local/share/kubebuilder-envtest/k8s/1.25.0-linux-amd64",
+    // },
     "go.testFlags": [
+        // Verbose logs
+        "-v",
         // Force go to skip the build cache for tests, see https://stackoverflow.com/a/48882892
-        "-count=1"
+        "-count=1",
+        // Enable data race detection
+        "-race"
     ],
     "go.useLanguageServer": true,
     "gopls": {
-        // "build.experimentalWorkspaceModule": true,
+        "ui.documentation.linkTarget": "pkg.go.dev",
+        "ui.documentation.linksInHover": true,
         "build.expandWorkspaceToModule": true,
         "build.allowImplicitNetworkAccess": true,
         "build.experimentalPackageCacheKey": true,
-        "build.experimentalUseInvalidMetadata": true,
         "formatting.gofumpt": true,
         "ui.completion.usePlaceholders": false,
         // "ui.diagnostic.staticcheck": false,
         "ui.navigation.importShortcut": "Definition",
         "verboseOutput": true,
+        "build.buildFlags": [
+            "-tags=e2e"
+        ]
     },
     "markdown-toc.depthFrom": 2,
     // workaround for right-click context menu selection made unexpectedly (https://github.com/microsoft/vscode/issues/113175)
@@ -141,7 +141,7 @@
     "markdown.extension.toc.levels": "2..6",
     "markdown.preview.breaks": true,
     "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
-    "markdown.preview.lineHeight": 1.5,
+    "markdown.preview.lineHeight": 1,
     "markdown.preview.openMarkdownLinks": "inEditor",
     "markdownlint.config": {
         "MD004": {
@@ -175,6 +175,7 @@
         ".vscode/notes.md"
     ],
     "markdownlint.run": "onSave",
+    "mergeEditor.showCheckboxes": true,
     "plantuml.render": "PlantUMLServer",
     "plantuml.server": "http://localhost:50080",
     "quickNotes.fileName": "./.vscode/notes.md",
@@ -219,26 +220,28 @@
     "todo-tree.tree.showScanModeButton": false,
     "typescript.implementationsCodeLens.enabled": true,
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "vim.easymotion": true,
+    "vim.camelCaseMotion.enable": true,
+    // I use metaGo instead of easymotion.
+    "vim.easymotion": false,
     "vim.easymotionMarkerBackgroundColor": "white",
     "vim.easymotionMarkerForegroundColorOneChar": "black",
     "vim.easymotionMarkerForegroundColorTwoCharFirst": "black",
     "vim.easymotionMarkerForegroundColorTwoCharSecond": "black",
     "vim.handleKeys": {
-        "<C-v>": true
+        "<C-v>": true,
+        // I want to use C-r to access recent files.
+        "<C-r>": false,
     },
     "vim.hlsearch": false,
     "vim.incsearch": true,
     "vim.leader": "<space>",
-    "vim.normalModeKeyBindings": [
-        {
-            "after": [
-                "<C-r>"
-            ],
-            "before": [
-                "U"
-            ]
-        }
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // FIXME Workaround from https://github.com/VSCodeVim/Vim/issues/8157#issuecomment-1426704638
+        { "before": [ "u" ], "commands": [ "undo" ] },
+        { "before": [ "C-r" ], "commands": [ "redo" ] },
+
+        // I prefer using 'U' to C-r
+        { "before": [ "U" ], "commands": [ "redo" ] },
     ],
     "vim.overrideCopy": true,
     "vim.sneak": true,
@@ -247,6 +250,12 @@
     "vim.useSystemClipboard": true,
     "vim.visualModeKeyBindingsNonRecursive": [
         {
+            // Normally, when you paste, whatever you replace is yanked.
+            // (See https://stackoverflow.com/a/25267180. for explanation).
+            // I do not want a paste to yank whatever I replace.
+            // These re-mappings re-select whatever you have just pasted,
+            // and yank it.
+            // (See https://stackoverflow.com/a/5093286 for explanation).
             "after": [
                 "p",
                 "g",
@@ -270,7 +279,7 @@
         }
     ],
     "window.autoDetectColorScheme": true,
-    "window.title": "${dirty}${activeEditorLong}${separator}${appName}",
+    "window.title": "${dirty}${rootNameShort}${separator}${activeEditorLong}${separator}${appName}",
     "window.zoomLevel": 3,
     "workbench.editor.enablePreview": true,
     "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -284,7 +293,7 @@
     "workbench.preferredLightColorTheme": "Light High Contrast Theme",
     // do not show welcome page on startup
     "workbench.startupEditor": "none",
-    "workspaceSidebar.folder": "/home/dlipovetsky/workspaces",
+    "workspaceSidebar.folder": "/home/dlipovetsky/.local/vscode-workspaces",
     // Disabled globally, until it is possible to disable for certain files (https://github.com/redhat-developer/vscode-yaml/issues/245)
     "yaml.schemaStore.enable": false,
     "yaml.validate": false,
@@ -293,6 +302,11 @@
     "terminal.integrated.scrollback": 2000,
     "git-graph.commitDetailsView.location": "Docked to Bottom",
     "workbench.reduceMotion": "on",
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "master",
+        "main"
+    ],
+    "githubPullRequests.pullBranch": "never",
     "githubPullRequests.queries": [
         {
             "label": "Waiting For My Review",
@@ -308,7 +322,6 @@
         }
     ],
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-    "markdown.preview.fontSize": 12.5,
     "comments.openView": "never",
     "markdown-preview-github-styles.colorTheme": "system",
     "editor.tokenColorCustomizations": {
@@ -392,9 +405,7 @@
         ]
     },
     "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Light High Contrast Theme",
     "vsicons.dontShowNewVersionMessage": true,
-    "workbench.panel.defaultLocation": "right",
     "go.testTimeout": "300s",
     "shfmt.executablePath": "/home/dlipovetsky/.local/go/bin/shfmt",
     "shellcheck.customArgs": [
@@ -403,4 +414,60 @@
     "[Log]": {
         "editor.largeFileOptimizations": true
     },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.stickyScroll.enabled": true,
+    "editor.suggest.matchOnWordStartOnly": false,
+    "workbench.colorTheme": "Default Light+ Experimental",
+    "go.toolsEnvVars": {
+        // Disable CGO optimizations to facilitate debugging. Delve logs a warning if this is not an empty string.
+        "CGO_CFLAGS": "",
+    },
+    "githubPullRequests.createOnPublishBranch": "never",
+    "docker.images.sortBy": "Size",
+    "docker.images.description": [
+        "CreatedTime",
+        "Size"
+    ],
+    "markdown.preview.fontSize": 13,
+    "gitlens.plusFeatures.enabled": false,
+    "gitlens.statusBar.enabled": false,
+    "gitlens.statusBar.pullRequests.enabled": false,
+    "gitlens.graph.dimMergeCommits": true,
+    "gitlens.blame.format": "${author|20-} - ${message|50?} ${agoOrDate|14-}",
+    "amVim.bindCtrlCommands": false,
+    "amVim.smartRelativeLineNumbers": true,
+    "amVim.useSystemClipboard": true,
+    "amVim.vimStyleNavigationInListView": false,
+    "gitlens.keymap": "none",
+    "metaGo.decoration.backgroundOpacity": "1.0",
+    "amVim.mimicVimSearchBehavior": false,
+    "gotoNextPreviousMember.symbolKinds": [
+        "function",
+        "method",
+    ],
+    "git.openRepositoryInParentFolders": "never",
+    // Clean up the outline view.
+    // "outline.showArrays": false,
+    // "outline.showBooleans": false,
+    // "outline.showConstants": false,
+    // "outline.showEnumMembers": false,
+    // "outline.showEnums": false,
+    // "outline.showEvents": false,
+    // "outline.showConstructors": false,
+    // "outline.showFields": false,
+    // "outline.showFiles": false,
+    // "outline.showInterfaces": false,
+    // "outline.showKeys": false,
+    // "outline.showModules": false,
+    // "outline.showNamespaces": false,
+    // "outline.showNull": false,
+    // "outline.showNumbers": false,
+    // "outline.showObjects": false,
+    // "outline.showOperators": false,
+    // "outline.showPackages": false,
+    // "outline.showProperties": false,
+    // "outline.showStrings": false, // Required to show Markdown outlines.
+    // "outline.showStructs": false,
+    // "outline.showTypeParameters": false,
+    // "outline.showVariables": false,
 }

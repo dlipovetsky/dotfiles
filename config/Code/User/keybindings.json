@@ -126,5 +126,32 @@
     {
         "key": "ctrl+shift+r",
         "command": "workbench.view.extension.references-view"
-    }
+    },
+    {
+        "key": "ctrl+t ctrl+f",
+        "command": "workbench.action.tasks.runTask",
+        "args": {
+            "task": "shfmt"
+        },
+    },
+    {
+        "key": "ctrl+shift+backspace",
+        "command": "deleteAllLeft",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+backspace",
+        "command": "-deleteAllLeft",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+delete",
+        "command": "deleteAllRight",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+delete",
+        "command": "-deleteAllRight",
+        "when": "editorTextFocus && !editorReadonly"
+    },
 ]
