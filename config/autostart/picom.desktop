@@ -1,0 +1,17 @@
+# Overrides the /etc/xdg/autostart/picom.desktop file.
+# Uses GPU-backed glx backend, instead of the default, software-backed xrender backend.
+[Desktop Entry]
+Version=1.0
+Type=Application
+NoDisplay=false
+Name=picom
+GenericName=X compositor
+Comment=An X compositor
+Categories=Utility;
+Keywords=compositor;composite manager;window effects;transparency;opacity;
+TryExec=/usr/bin/picom
+Exec=/usr/bin/picom --backend glx
+StartupNotify=false
+Terminal=false
+# Thanks to quequotion for providing this file!
+Icon=picom
