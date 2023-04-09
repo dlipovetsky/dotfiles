@@ -104,9 +104,13 @@ bindsym $mod+plus fullscreen toggle
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Compositor
-# Note: picom now starts through /etc/xdg/autostart/picom.desktop
-exec_always --no-startup-id picom \
-        --no-vsync
+# As of 12/2022:
+# 1. Using i3wm on Fedora 36, a compositor appears to be unnecessary to screen share in both zoom and slack,
+# so disabling.
+# 2. picom now starts through /etc/xdg/autostart/picom.desktop, and that takes precedence, so needs to be disabled if
+# using the below
+# exec_always --no-startup-id picom \
+#         --no-vsync
 # experimental-backends is the default as of v10, see https://github.com/yshui/picom/releases/tag/v10-rc1
 # 	--experimental-backends \
 # 	--backend glx \
@@ -118,9 +122,10 @@ exec_always --no-startup-id picom \
         # --backend xr_glx_hybrid \
 	# --vsync \
 
-# Show the first scratchpad window
+# Move window to scratchpad
 bindsym $mod+Shift+backslash move scratchpad
-bindsym $mod+backslash scratchpad show
+# Show all scratchpad windows
+bindsym $mod+backslash [class=.*] scratchpad show
 
 # GNOME Flashback
 exec --no-startup-id gnome-flashback
@@ -146,6 +151,9 @@ bindsym $mod+Tab exec  "rofi -modi window -show window -matching fuzzy"
 # fd . / | rofi -keep-right -dmenu -i -p FILES
 bindsym $mod+l exec  "bash ~/.config/i3/rofi-locate.sh"
 
+# Emoji Picker
+bindsym $mod+e exec  "/home/dlipovetsky/.local/bin/x11-emoji-picker-x86_64.AppImage"
+
 # Browser
 # Quick focus
 set $browser "Microsoft-edge"
@@ -155,13 +163,25 @@ bindsym $mod+b [class=$browser] focus
 # Start
 set $terminal_name kitty
 set $terminal_path /usr/bin/kitty
-set $terminal_args --session $HOME/.config/kitty/sessions/default.conf --detach --single-instance
+set $terminal_args --config $HOME/.config/kitty/kitty.daniel.conf --session $HOME/.config/kitty/sessions/default.conf --detach --single-instance
 # Quick Focus
 bindsym $mod+Shift+t exec $terminal_path $terminal_args
 bindsym $mod+t [class=$terminal_name] focus
 
 # Debug
 bindsym $mod+d shmlog toggle, debuglog toggle
+
+# Calculator
+# Floating window
+for_window [class="(g|G)nome-calculator"] floating enable
+
+# EasyEffects
+# Floating window
+for_window [class="(e|E)asy(e|E)ffects"] floating enable
+
+# PulseAudio Volume Control
+# Floatin window
+for_window [class="(p|P)avucontrol"] floating enable
 
 # Zoom
 # NOTE As of 5.11.0, the window class (and, sometimes, name) is a complex string that when the meeting is opened from the browser, e.g., "join?action=join&confno=97247274748&pwd=L2lXN0h2Y2dkS3FkeG9sdEh5ZitKdz09&confid=dXRpZD1VVElEXzUyMDBkZDk2NDY0YzRiNmJiZTZiMDVlMmZlMmUyNWMyJnVzcz0tek5xYWRHUkx4UGVoSjNzTHUwVWlOOE5ZOWVFcjVfekRlRnhGQ043NjB3MUVUazVuak5xb3RmSEU1dExKT05vZG9LYmJ4WWxhU2JYblFLMzNzMWV4SExDLjRnVGFvb2R4YjdBaVVMaGEmdGlkPTAyZWUzNTRhMjA1OTQzY2FhYWM1MTMwZGQyZjdjZWM1&browser=chrome"
@@ -173,6 +193,9 @@ for_window [class="^(zoom|join\?action).*" title="Zoom Meeting"] floating disabl
 for_window [class="^(zoom|join\?action).*" title="Zoom - Licensed Account"] floating disable
 # Do not steal focus
 no_focus [class="^(zoom|join\?action).*" title="zoom"]
+# Except "main" window. This is necessary because zoom creates the "main" window without the full title at first, so the
+# previous "do not steal focus" rule matches it. Here, we make sure that we focus on the "main" window when it is created.
+for_window [class="^(zoom|join\?action).*" title="Zoom - Licensed Account"] focus
 # Shortcut
 bindsym $mod+z [class="^(zoom|join\?action).*" title="Zoom Meeting"] focus
 
@@ -185,11 +208,12 @@ bindsym $mod+Shift+m exec gio launch /usr/share/applications/htop.desktop
 # bindsym $mod+m [class="htop"] focus
 
 # Select Nth tab
-bindsym $mod+1 exec --no-startup-id i3-tabn 0
-bindsym $mod+2 exec --no-startup-id i3-tabn 1
-bindsym $mod+3 exec --no-startup-id i3-tabn 2
-bindsym $mod+4 exec --no-startup-id i3-tabn 3
-bindsym $mod+5 exec --no-startup-id i3-tabn 4
+# NOTE i3-tabn executable is in $HOME/.local/bin, which is not in the $PATH of i3.
+bindsym $mod+1 exec --no-startup-id $HOME/.local/bin/i3-tabn 0
+bindsym $mod+2 exec --no-startup-id $HOME/.local/bin/i3-tabn 1
+bindsym $mod+3 exec --no-startup-id $HOME/.local/bin/i3-tabn 2
+bindsym $mod+4 exec --no-startup-id $HOME/.local/bin/i3-tabn 3
+bindsym $mod+5 exec --no-startup-id $HOME/.local/bin/i3-tabn 4
 
 # Select window with wmfocus
 #bindsym --release $mod+space exec --no-startup-id wmfocus -f "Droid Sans":200 --chars 1234567890
@@ -230,3 +254,12 @@ exec_always --no-startup-id feh --no-xinerama --bg-fill $background_image
 # even cause them to crash.
 #exec_always --no-startup-id flatpak run com.github.wwmm.easyeffects --gapplication-service
 exec_always --no-startup-id easyeffects --gapplication-service
+
+# Volume control of PulseAudio sinks.
+# NOTE The volume of the default sink is controlled using the "media keys."
+#
+# Sink name: Logitech BT Adapter
+set $alt_pa_sink_1 "bluez_output.88_C6_26_72_6A_D8.a2dp-sink"
+bindsym $mod+F2 exec pactl set-sink-volume $alt_pa_sink_1 -10%
+bindsym $mod+F3 exec pactl set-sink-volume $alt_pa_sink_1 +10%
+bindsym $mod+F1 exec pactl set-sink-mute $alt_pa_sink_1 toggle
