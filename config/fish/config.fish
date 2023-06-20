@@ -1,8 +1,16 @@
+# Commands to run in interactive sessions can go here
 if status is-interactive
-    # Commands to run in interactive sessions can go here
 
     # Standard paths
     fish_add_path -g /home/dlipovetsky/.local/bin
+
+    # XDG Configuration Directory
+    # By default, the variable is not set, although the value is $HOME/.config.
+    # We make the variable available for other programs.
+    set -x -g XDG_CONFIG_HOME $HOME/.config
+    if ! test -d $XDG_CONFIG_HOME
+        mkdir -p $XDG_CONFIG_HOME
+    end
 
     # AWS Completion from https://github.com/aws/aws-cli/issues/1079#issuecomment-541997810
     if test (command -v aws_completer)
@@ -74,7 +82,7 @@ if status is-interactive
     end
 
     # asdf
-    if test -e ~/.asdf/asdf.fish 
+    if test -e ~/.asdf/asdf.fish
         source ~/.asdf/asdf.fish
     end
 
@@ -94,4 +102,8 @@ if status is-interactive
             --raw-control-chars
     end
 
+    # rg (search)
+    if test (command -v rg)
+        set -x -g RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgreprc
+    end
 end
