@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=kitty (default session)
+GenericName=Terminal emulator
+Comment=Fast, feature-rich, GPU based terminal
+TryExec=kitty
+Exec=env KITTY_SESSION=$HOME/.config/kitty/sessions/default.conf kitty --session $HOME/.config/kitty/sessions/default.conf --detach --single-instance
+Icon=kitty
+Categories=System;TerminalEmulator;
