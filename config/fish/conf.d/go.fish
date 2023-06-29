@@ -1,8 +1,9 @@
-set -gx GOBIN $HOME/.local/go/bin
-set -gx GOPATH $HOME/.local/go
+set -gx GOBIN $HOME/.local/share/go/bin
+set -gx GOPATH $HOME/.local/share/go
+# Note GOMODCACHE is _not_ under $HOME/.cache by design. See https://github.com/golang/go/issues/34527#issuecomment-603940080
 
 begin
-    set go_version 1.20.1
+    set go_version 1.20.5
     # set go_version 1.19.5
     #set go_version 1.18.4
     #set go_version 1.17.8
