@@ -17,3 +17,5 @@ abbr --add -g -- k kubectl
 abbr --add -g -- rm trash
 abbr --add -g -- xo xdg-open
 
+abbr -g jc journalctl
+abbr -g sc systemctl
