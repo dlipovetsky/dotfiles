@@ -4,7 +4,10 @@
 
 # Using glob patterns to include/exclude files or folders
 --glob
-!git/*
+!.git/*
+
+# Match directories like .github and .vscode, for example
+--hidden
 
 # Set the colors.
 --colors=line:none
