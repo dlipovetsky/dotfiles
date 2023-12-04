@@ -98,8 +98,9 @@ if status is-interactive
     if test (command -v less)
         set -x -g LESS \
             --ignore-case \
-            --use-color \
-            --raw-control-chars
+            --quit-if-one-screen \
+            --RAW-CONTROL-CHARS \
+            --use-color
     end
 
     # rg (search)
