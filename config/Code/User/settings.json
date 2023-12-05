@@ -299,7 +299,7 @@
     "window.title": "${dirty}${rootNameShort}${separator}${activeEditorLong}${separator}${appName}",
     "workbench.editor.enablePreview": true,
     "workbench.editor.enablePreviewFromQuickOpen": false,
-    "workbench.editor.showTabs": true,
+    "workbench.editor.showTabs": "multiple",
     "workbench.editor.splitInGroupLayout": "vertical",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb",
