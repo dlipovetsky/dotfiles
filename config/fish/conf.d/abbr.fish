@@ -17,3 +17,6 @@ abbr --add -g -- k kubectl
 abbr --add -g -- rm trash
 abbr --add -g -- xo xdg-open
 
+abbr --add -g -- p podman
+
+abbr --add -g -- ko /home/dlipovetsky/nutanix/konvoy2/dist/konvoy_linux_amd64_v1/konvoy
