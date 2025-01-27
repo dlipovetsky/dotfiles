@@ -1,12 +1,13 @@
 {
-    "[go]": {
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true,
-        },
-        "editor.formatOnSave": true,
-        "editor.formatOnSaveMode": "modificationsIfAvailable",
-    },
-    "go.goroot": "/home/dlipovetsky/.local/share/go/1.21.3",
+    // "[go]": {
+    //     "editor.codeActionsOnSave": {
+    //         "source.organizeImports": "explicit"
+    //     },
+    //     "editor.formatOnSave": true,
+    //     "editor.formatOnSaveMode": "modificationsIfAvailable",
+    // },
+    // "go.goroot": "/home/dlipovetsky/.local/share/go/1.21.5",
+    // If go.gopath is undefined, vscode-go will use $HOME/go
     "go.gopath": "/home/dlipovetsky/.local/share/go",
     "breadcrumbs.enabled": true,
     "cSpell.allowCompoundWords": true,
@@ -27,9 +28,9 @@
         "toolchain",
         "xenial"
     ],
-    "debug.console.fontSize": 12,
+    "debug.console.fontSize": 11,
     "editor.bracketPairColorization.enabled": true,
-    "editor.fontFamily": "'Fira Code','JetBrains Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "'0xProto','Fira Code','JetBrains Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontWeight": "450",
     "editor.fontSize": 11,
     "editor.fontLigatures": false,
@@ -117,10 +118,9 @@
     ],
     "go.useLanguageServer": true,
     "gopls": {
-
+        "ui.semanticTokens": true, // Enabling this because I'm getting "[error] semantictokens are disabled: Error: semantictokens are disabled" all the time! (Dec 29 2023)
         "ui.documentation.linkTarget": "pkg.go.dev",
         "ui.documentation.linksInHover": true,
-        "build.allowImplicitNetworkAccess": true,
         "formatting.gofumpt": true,
         "ui.completion.usePlaceholders": false,
         "ui.navigation.importShortcut": "Definition",
@@ -177,7 +177,7 @@
     "plantuml.server": "http://localhost:50080",
     "quickNotes.fileName": "./.vscode/notes.md",
     "redhat.telemetry.enabled": false,
-    "rewrap.wrappingColumn": 80,
+    "rewrap.wrappingColumn": 120,
     "search.enableSearchEditorPreview": true,
     "search.exclude": {
         "**/.git": true,
@@ -193,7 +193,7 @@
         }
     ],
     "telemetry.telemetryLevel": "crash",
-    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontSize": 11,
     "terraform.indexing": {
         "delay": 500,
         "enabled": false,
@@ -297,9 +297,7 @@
     ],
     "window.autoDetectColorScheme": true,
     "window.title": "${dirty}${rootNameShort}${separator}${activeEditorLong}${separator}${appName}",
-    "workbench.editor.enablePreview": true,
     "workbench.editor.enablePreviewFromQuickOpen": false,
-    "workbench.editor.showTabs": "multiple",
     "workbench.editor.splitInGroupLayout": "vertical",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb",
@@ -461,7 +459,6 @@
     "git.openRepositoryInParentFolders": "never",
     "cmake.configureOnOpen": true,
     "shellformat.flag": "--simplify --indent=2",
-    "rewrap.autoWrap.enabled": true,
     "yaml.format.printWidth": 120,
     "spellright.documentTypes": [
         "markdown",
@@ -470,13 +467,31 @@
     ],
     "editor.wordWrapColumn": 120,
     "debug.toolBarLocation": "docked",
-    "window.commandCenter": true,
     "workbench.panel.defaultLocation": "right",
     "markdown.preview.fontSize": 13,
     "terminal.integrated.hideOnStartup": "whenEmpty",
-    "diffEditor.ignoreTrimWhitespace": false,
     "window.zoomLevel": 2,
     "gitlens.graph.minimap.enabled": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.mergeEditor": true,
+    "editor.mouseWheelZoom": true,
+    "cmake.showOptionsMovedNotification": false,
+    "go.coverOnSingleTest": true,
+    "go.coverOnSingleTestFile": true,
+    "[go]": {
+        "editor.insertSpaces": false,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "editor.hover.delay": 150,
+    "editor.hover.hidingDelay": 10,
+    "window.titleBarStyle": "custom",
+    "window.dialogStyle": "custom",
+    "window.commandCenter": false,
+    "window.density.editorTabHeight": "compact",
+    "editor.stickyScroll.maxLineCount": 6,
     // Clean up the outline view.
     // "outline.showArrays": false,
     // "outline.showBooleans": false,

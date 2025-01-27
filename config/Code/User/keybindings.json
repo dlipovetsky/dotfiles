@@ -115,10 +115,6 @@
         "command": "editor.action.goToTypeDefinition"
     },
     {
-        "key": "ctrl+shift+alt+f12",
-        "command": "references-view.findImplementations"
-    },
-    {
         "key": "ctrl+shift+r",
         "command": "-editor.action.refactor",
         "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
@@ -154,4 +150,8 @@
         "command": "-deleteAllRight",
         "when": "editorTextFocus && !editorReadonly"
     },
+    {
+        "key": "shift+alt+f11",
+        "command": "references-view.findImplementations"
+    }
 ]
