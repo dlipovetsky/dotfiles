@@ -4,6 +4,11 @@ if status is-interactive
     # Standard paths
     fish_add_path -g /home/dlipovetsky/.local/bin
 
+    # Editor
+    if test (command -v nvim)
+        set -x -g EDITOR $(command -v nvim)
+    end
+
     # XDG Configuration Directory
     # By default, the variable is not set, although the value is $HOME/.config.
     # We make the variable available for other programs.
@@ -82,9 +87,9 @@ if status is-interactive
     end
 
     # asdf
-    if test -e ~/.asdf/asdf.fish
-        source ~/.asdf/asdf.fish
-    end
+    # if test -e ~/.asdf/asdf.fish
+    #     source ~/.asdf/asdf.fish
+    # end
 
     # virsh
     # The default URI is qemu:///session, which nothing uses, apparently, except virsh.
