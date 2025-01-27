@@ -1,6 +1,6 @@
 # Don't let ripgrep vomit really long lines to my terminal, and show a preview.
---max-columns=120
---max-columns-preview
+#--max-columns=160
+#--max-columns-preview
 
 # Using glob patterns to include/exclude files or folders
 --glob
