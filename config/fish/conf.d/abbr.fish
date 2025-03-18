@@ -23,6 +23,6 @@ abbr --add -g -- k kubectl
 abbr --add -g -- p podman
 abbr --add -g -- d docker
 
-abbr --add -g -- kon /home/dlipovetsky/nutanix/konvoy2/dist/konvoy_linux_amd64_v1/konvoy
+abbr --add -g -- kon /home/dlipovetsky/projects/konvoy2/dist/konvoy_linux_amd64_v1/konvoy
 
 abbr --add -g -- az docker run -it -v $HOME/.azure:/root/.azure mcr.microsoft.com/azure-cli az

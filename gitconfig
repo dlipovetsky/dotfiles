@@ -43,7 +43,7 @@
 	name = Daniel Lipovetsky
 	signingkey = /home/dlipovetsky/.ssh/id_ed25519.pub
 
-[includeIf "gitdir:~/nutanix/**"]
+[includeIf "gitdir:~/projects/**"]
 	path = ~/.gitconfig.nutanix
 
 [credential "https://github.com"]

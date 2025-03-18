@@ -492,6 +492,8 @@
     "window.commandCenter": false,
     "window.density.editorTabHeight": "compact",
     "editor.stickyScroll.maxLineCount": 6,
+    "window.newWindowProfile": "dlipovetsky",
+    "window.newWindowDimensions": "maximized",
     // Clean up the outline view.
     // "outline.showArrays": false,
     // "outline.showBooleans": false,

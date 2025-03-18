@@ -1,3 +1,3 @@
 begin
-    choose-go-version 1.23.2
+    choose-go-version 1.23.5
 end

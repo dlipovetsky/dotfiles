@@ -6,7 +6,7 @@ if status is-interactive
 
     # Editor
     if test (command -v nvim)
-        set -x -g EDITOR $(command -v nvim)
+        set -x -g EDITOR (command -v nvim)
     end
 
     # XDG Configuration Directory
